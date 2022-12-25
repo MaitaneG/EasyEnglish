@@ -80,6 +80,8 @@
   --ion-toolbar-background:#428cff;
   --ion-toolbar-color:white;
 
+  --ion-item-border-color:var(--ion-color-primary);
+
   --ion-font-family: Montagu Slab;
 }
 
@@ -188,7 +190,8 @@
     --ion-color-step-900: #e6e6e6;
     --ion-color-step-950: #f2f2f2;
 
-    --ion-item-background: #000000;
+    --ion-item-background: #ffffff;
+    --ion-item-border-color:var(--ion-color-primary);
 
     --ion-toolbar-background:#246EE9;
 
@@ -235,7 +238,8 @@
     --ion-color-step-900: #e7e7e7;
     --ion-color-step-950: #f3f3f3;
 
-    --ion-item-background: #1e1e1e;
+    --ion-item-background: #ffffff;
+    --ion-item-border-color:var(--ion-color-primary);
 
     --ion-toolbar-background:#246EE9;
 
