@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'games',
     loadChildren: () => import('./games/games.module').then( m => m.GamesPageModule)
+  },  {
+    path: 'hangman',
+    loadChildren: () => import('./hangman/hangman.module').then( m => m.HangmanPageModule)
   },
+
 ];
 
 @NgModule({
