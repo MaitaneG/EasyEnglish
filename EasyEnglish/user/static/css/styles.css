@@ -1,0 +1,34 @@
+body {
+  background-color: #246EE9;
+}
+body .home_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+body .home_page h1 {
+  font-size: 70px;
+  font-weight: bold;
+}
+body .home_page a {
+  font-size: 30px;
+  background-color: #DB5A6E;
+  padding: 15px;
+  margin-top: 30px;
+  color: white !important;
+}
+
+body .home_page a:hover {
+  background-color: #d7485d;
+}
+
+body .home_page a:active {
+  background-color: #d0203a;
+}
+
+* {
+  color: white;
+  font-family: Montagu Slab;
+}

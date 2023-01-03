@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}EasyEnglish{% endblock title %} 
+{% block content %}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dat in data %}
+    <tr>
+      <td>{{ dat.email }}</td>
+      <td>{{ dat.username }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
