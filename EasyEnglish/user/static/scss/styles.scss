@@ -1,45 +1,67 @@
-$primary_color: #246EE9;
-$secondary_color: #DB5A6E;
-$font_color:white;
-$font_family:Montagu Slab;
-$font_size_big_title:70px;
-$font_size_big_button:30px;
+$primary_color: #246ee9;
+$secondary_color: #db5a6e;
+$font_color: white;
+$font_color_secundary: black;
+$font_family: Montagu Slab;
+$font_size_big_title: 70px;
+$font_size_big_button: 30px;
 
-body{
-    background-color: $primary_color;
+body {
+  background-color: $primary_color;
 
-    .home_page{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
+  .home_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 
-        h1{
-            font-size: $font_size_big_title;
-            font-weight: bold;
-        }
-
-        a{
-            font-size: $font_size_big_button;
-            background-color: $secondary_color;
-            padding: 15px;
-            margin-top: 30px;
-            color: $font_color !important;
-
-            &:hover{
-                background-color: #d7485d;
-            }
-
-            &:active{
-                background-color: #d0203a;
-            }
-        }
+    h1 {
+      font-size: $font_size_big_title;
+      font-weight: bold;
     }
+
+    a {
+
+        color: $font_color;
+        margin-top: 30px;
+
+      &.btn {
+        font-size: $font_size_big_button;
+        background-color: $secondary_color;
+        padding: 15px;
+        color: $font_color !important;
+
+        &:hover {
+          background-color: #d7485d;
+        }
+
+        &:active {
+          background-color: #d0203a;
+        }
+      }
+    }
+
+    form {
+      text-align: center;
+
+      input {
+        color: $font_color_secundary;
+        margin: 20px;
+        border: 5px solid $secondary_color;
+        border-radius: 30px;
+        padding: 25px;
+      }
+
+      button {
+        background-color: $secondary_color;
+        color: $font_color;
+      }
+    }
+  }
 }
 
-*{
-    color: $font_color;
-    font-family: $font_family;
+* {
+  color: $font_color;
+  font-family: $font_family;
 }
-
