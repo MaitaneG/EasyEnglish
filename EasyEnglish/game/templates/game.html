@@ -1,8 +1,7 @@
 {% extends "base.html" %} 
 {% load static %} 
-{% block title %}EasyEnglish | Login{% endblock title %} 
+{% block title %}EasyEnglish{% endblock title %} 
 {% block content %}
-
 {% for message in messages  %}
       <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
             <strong>Mezua : </strong> {{ message }}
@@ -12,18 +11,7 @@
           </div>
 {% endfor %}
 
-<div class="home_page">
-    <h1>INICIO DE SESIÓN</h1>
-    
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        {{ form.username }}
-        {{ form.password }}
-        <button type="submit" class="btn">INICIAR SESIÓN</button>
-    </form>
-
-    <a href="{% url 'register' %}">¿Todavía no tienes cuenta?</a>
-</div>
+<a class="btn bg-danger" href="/logout">CERRAR SESIÓN</a>
 
 
 {% endblock content %}
