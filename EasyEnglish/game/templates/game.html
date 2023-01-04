@@ -1,17 +1,38 @@
 {% extends "base.html" %} 
 {% load static %} 
-{% block title %}EasyEnglish{% endblock title %} 
-{% block content %}
-{% for message in messages  %}
-      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong>Mezua : </strong> {{ message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+{% block title %}EasyEnglish | Games {% endblock title %} 
+{% block content %} 
+{% for message in messages %}
+<div
+  class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Mezua : </strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
-<a class="btn bg-danger" href="/logout">CERRAR SESIÓN</a>
-
+<div class="home_page">
+  <h1>GAMES</h1>
+  <a href="/logout">CERRAR SESIÓN</a>
+  <div class="game_menu">
+    <a href="{% url 'hangman' %}"><div>
+      <img src="{% static '/img/memory_game.png' %}">
+      <h3>Memory game</h3>
+    </div></a>
+    <a href="{% url 'hangman' %}"><div>
+      <img src="{% static '/img/hangman.png' %}">
+      <h3>Hangman</h3>
+    </div></a>
+    <a href="{% url 'hangman' %}"><div>
+      <img src="{% static '/img/listening.png' %}">
+      <h3>Listen & choose</h3>
+    </div></a>
+    <a href="{% url 'hangman' %}"><div>
+      <img src="{% static '/img/match.png' %}">
+      <h3>Match sentence halves</h3>
+    </div></a>  
+  </div>
+</div>
 
 {% endblock content %}
