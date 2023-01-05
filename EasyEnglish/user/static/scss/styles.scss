@@ -83,7 +83,7 @@ body {
       text-align: center;
       padding: 30px;
       background-color: $font_color;
-      margin: 50px;
+      margin: 30px;
       border-radius: 50px;
       cursor: pointer;
 
@@ -95,7 +95,30 @@ body {
   }
 }
 
+.games_container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 !important;
+}
+
 * {
   color: $font_color;
   font-family: $font_family;
+}
+
+nav{
+  background-color: $secondary_color !important;
+  padding: 20px !important;
+  a{
+    color: $font_color;
+
+    &:hover{
+      color: $font_color;
+    }
+  }
+  h3{
+    font-size: 1.75rem !important;
+    margin: 0;
+
+  }
 }

@@ -66,7 +66,7 @@ body .home_page form button {
   text-align: center;
   padding: 30px;
   background-color: white;
-  margin: 50px;
+  margin: 30px;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -75,9 +75,30 @@ body .home_page form button {
   margin-top: 10px;
 }
 
+.games_container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 !important;
+}
+
 * {
   color: white;
   font-family: Montagu Slab;
+}
+
+nav {
+  background-color: #db5a6e !important;
+  padding: 20px !important;
+}
+nav a {
+  color: white;
+}
+nav a:hover {
+  color: white;
+}
+nav h3 {
+  font-size: 1.75rem !important;
+  margin: 0;
 }/*# sourceMappingURL=styles.css.map */
 
 
@@ -86,7 +107,9 @@ body .home_page form button {
 
 
 
-.container {
+
+
+.container_hangman {
   font-size: 16px;
   background-color: #ffffff;
   width: 90vw;
@@ -101,6 +124,10 @@ body .home_page form button {
 }
 #options-container {
   text-align: center;
+}
+
+#options-container h3 {
+  color: #000000;
 }
 #options-container div {
   width: 100%;
@@ -186,7 +213,7 @@ canvas {
 #new-game-button {
   font-size: 1.25em;
   padding: 0.5em 1em;
-  background-color: #f4c531;
+  background-color: #db5a6e;
   border: 3px solid #000000;
   color: #000000;
   border-radius: 0.2em;

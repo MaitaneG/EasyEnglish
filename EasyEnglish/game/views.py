@@ -3,7 +3,8 @@ from django.contrib.auth import logout as auth_logout
 
 # Create your views here.
 def game(request):
-    return render(request, 'game.html')
+    user=request.user
+    return render(request, 'game.html',{'user':user})
 
 def hangman(request):
     return render(request, 'hangman.html')

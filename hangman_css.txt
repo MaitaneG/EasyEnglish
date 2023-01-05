@@ -1,4 +1,4 @@
-.container {
+.container_hangman {
   font-size: 16px;
   background-color: #ffffff;
   width: 90vw;
@@ -13,6 +13,10 @@
 }
 #options-container {
   text-align: center;
+}
+
+#options-container h3 {
+  color: #000000;
 }
 #options-container div {
   width: 100%;
@@ -98,7 +102,7 @@ canvas {
 #new-game-button {
   font-size: 1.25em;
   padding: 0.5em 1em;
-  background-color: #f4c531;
+  background-color: #db5a6e;
   border: 3px solid #000000;
   color: #000000;
   border-radius: 0.2em;

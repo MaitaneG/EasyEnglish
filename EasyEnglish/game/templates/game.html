@@ -2,19 +2,26 @@
 {% load static %} 
 {% block title %}EasyEnglish | Games {% endblock title %} 
 {% block content %} 
-{% for message in messages %}
-<div
-  class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-  <strong>Mezua : </strong> {{ message }}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <h3 class="navbar-brand">{{user.username}}</h3>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-</div>
-{% endfor %}
 
-<div class="home_page">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">POINTS:</li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="/logout">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="games_container container">
   <h1>GAMES</h1>
-  <a href="/logout">CERRAR SESIÓN</a>
   <div class="game_menu">
     <a href="{% url 'hangman' %}"><div>
       <img src="{% static '/img/memory_game.png' %}">
