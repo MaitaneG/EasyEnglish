@@ -9,10 +9,6 @@ body .home_page {
   height: 100vh;
   text-align: center;
 }
-body .home_page h1 {
-  font-size: 70px;
-  font-weight: bold;
-}
 body .home_page a {
   color: white;
   margin-top: 30px;
@@ -99,13 +95,12 @@ nav a:hover {
 nav h3 {
   font-size: 1.75rem !important;
   margin: 0;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: bold;
 }/*# sourceMappingURL=styles.css.map */
-
-
-
-
-
-
 
 
 
