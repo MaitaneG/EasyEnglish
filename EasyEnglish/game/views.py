@@ -17,9 +17,6 @@ def logout(request):
     auth_logout(request)
     return redirect('index')
 
-def getHangmanByType(request, type):
-    hangmans = list(Hangman.objects.filter(type=type).values())
-    
-    if hangmans:
-        hangman=random.choice(hangman)
-        return JsonResponse(hangman,safe=False)
+def getHangmanByType(request):
+    hangmans = list(Hangman.objects.all().values())
+    return JsonResponse(hangmans,safe=False)

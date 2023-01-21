@@ -16,6 +16,15 @@
       </div>
       <!-- Script -->
       <script src="{% static '/js/script.js' %}"></script>
+      <script>
+      $.ajax({
+        //create an ajax request to display.php
+        type: "GET",
+        url: "{% url 'getHangmanByType' %}",
+        success: function (response) {
+          alert(response);
+        },
+      });</script>
 </div>
 
 {% endblock content %}

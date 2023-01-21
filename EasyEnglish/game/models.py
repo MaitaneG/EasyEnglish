@@ -8,7 +8,7 @@ class Hangman(models.Model):
 
     id = models.AutoField(primary_key=True)
     word = models.CharField(max_length=50)
-    type = models.CharField(max_length=50, choices=TYPES)
+    types = models.CharField(max_length=50, choices=TYPES)
     spanish = models.CharField(max_length=100)
     photo = models.ImageField(null=True)
 
