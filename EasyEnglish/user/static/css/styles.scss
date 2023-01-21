@@ -1,0 +1,266 @@
+$primary_color: #246ee9;
+$secondary_color: #db5a6e;
+$secondary_color_darker: #d7485d;
+$secondary_color_dark: #d0203a;
+$grey: rgba(111, 85, 0, 0.25);
+$disabled: #efefef;
+$light_grey: #808080;
+$font_color: white;
+$font_color_secundary: black;
+
+$font_family: Montagu Slab;
+
+$font_size_big_title: 70px;
+$font_size_big_button: 30px;
+$font_size_small_button: 20px;
+
+* {
+  color: $font_color;
+  font-family: $font_family;
+}
+
+h1 {
+  font-size: $font_size_big_title;
+  font-weight: bold;
+}
+
+body {
+  background-color: $primary_color;
+}
+/*Home page, login and register*/
+.home_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+
+  a {
+    color: $font_color;
+    margin-top: 30px;
+
+    &.btn {
+      font-size: $font_size_big_button;
+      background-color: $secondary_color;
+      padding: 15px;
+      color: $font_color !important;
+
+      &:hover {
+        background-color: $secondary_color_darker;
+      }
+
+      &:active {
+        background-color: $secondary_color_dark;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      color: $font_color_secundary;
+      margin: 20px;
+      border: 5px solid $secondary_color;
+      border-radius: 30px;
+      padding: 25px;
+    }
+
+    button {
+      background-color: $secondary_color;
+      color: $font_color !important;
+      font-size: $font_size_small_button;
+      padding: 15px;
+    }
+  }
+}
+
+/*Game menu*/
+.game_menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  a {
+    padding: 0;
+    margin: 0 !important;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      background-color: $font_color;
+      margin: 30px;
+      border-radius: 50px;
+      cursor: pointer;
+
+      h3 {
+        color: $font_color_secundary;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.games_container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 !important;
+}
+
+nav {
+  background-color: $secondary_color !important;
+  padding: 20px !important;
+  a {
+    color: $font_color;
+
+    &:hover {
+      color: $font_color;
+    }
+  }
+  h3 {
+    font-size: 1.75rem !important;
+    margin: 0;
+  }
+}
+
+/* Hangman  Change the fontSizes*/
+.container_hangman {
+  font-size: 16px;
+  background-color: $font_color;
+  width: 90vw;
+  max-width: 34em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 3em;
+  border-radius: 0.6em;
+  box-shadow: 0 1.2em 2.4em $grey;
+
+  #options-container {
+    text-align: center;
+
+    h3 {
+      color: $font_color_secundary;
+    }
+
+    div {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 1.2em 0 2.4em 0;
+
+      button {
+        padding: 0.6em 1.2em;
+        border: 3px solid $font_color_secundary;
+        background-color: $font_color;
+        color: $font_color_secundary;
+        border-radius: 0.3em;
+        text-transform: capitalize;
+
+        &:disabled {
+          border: 3px solid $light_grey;
+          color: $light_grey;
+          background-color: $disabled;
+        }
+
+        &.active {
+          background-color: $secondary_color;
+          border: 3px solid $font_color_secundary;
+          color: $font_color_secundary;
+        }
+      }
+    }
+  }
+
+  .letter-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6em;
+  }
+  #letter-container {
+    button {
+      height: 2.4em;
+      width: 2.4em;
+      border-radius: 0.3em;
+      background-color: $font_color;
+      color: $font_color_secundary;
+    }
+  }
+
+  #user-input-section {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8em;
+    margin: 0.6em 0 1.2em 0;
+
+    span {
+      color: $font_color_secundary;
+    }
+  }
+
+  canvas {
+    display: block;
+    margin: auto;
+    border: 1px solid $font_color_secundary;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .new-game-popup {
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0.6em;
+  }
+
+  #result-text {
+    h2 {
+      font-size: 1.8em;
+      text-align: center;
+    }
+    p {
+      font-size: 1.25em;
+      margin: 1em 0 2em 0;
+      color: $font_color_secundary;
+      span {
+        font-weight: 600;
+        color: $font_color_secundary;
+      }
+    }
+    
+    .win-msg {
+      color: #39d78d;
+    }
+    .lose-msg {
+      color: #fe5152;
+    }
+  }
+
+  #new-game-button {
+    font-size: 1.25em;
+    padding: 0.5em 1em;
+    background-color: $secondary_color;
+    border: 3px solid $font_color_secundary;
+    color: $font_color_secundary;
+    border-radius: 0.2em;
+  }
+}
