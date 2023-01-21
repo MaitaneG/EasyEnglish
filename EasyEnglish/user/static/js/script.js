@@ -8,31 +8,10 @@ const canvas = document.getElementById("canvas");
 const resultText = document.getElementById("result-text");
 //Options values for buttons
 let options = {
-  fruits: [
-    "Apple",
-    "Blueberry",
-    "Mandarin",
-    "Pineapple",
-    "Pomegranate",
-    "Watermelon",
-  ],
-  animals: ["Hedgehog", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
-  countries: [
-    "India",
-    "Hungary",
-    "Kyrgyzstan",
-    "Switzerland",
-    "Zimbabwe",
-    "Dominica",
-  ],
-  movies: [
-    "India",
-    "Hungary",
-    "Kyrgyzstan",
-    "Switzerland",
-    "Zimbabwe",
-    "Dominica",
-  ],
+  food: [],
+  animal: [],
+  furniture: [],
+  schoolmaterial: [],
 };
 //count
 let winCount = 0;
@@ -175,6 +154,21 @@ const generateWord = (optionValue) => {
   //initially hide letters, clear previous word
   letterContainer.classList.remove("hide");
   userInputSection.innerText = "";
+
+  let csrftoken = '{{ csrf_token }}';
+  let datuak= {types:optionValue}
+  $.ajax({
+    //create an ajax request to display.php
+    type: 'POST',
+    headers:{'X-CSRFToken':csrftoken},
+    url: '{% url "getHangmanByType" %}',
+    data: datuak,
+    dataType:'json',
+    success: function (response) {
+      alert(response.word);
+    },
+  });
+
   let optionArray = options[optionValue];
 
   //choose random word

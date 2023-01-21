@@ -18,5 +18,10 @@ def logout(request):
     return redirect('index')
 
 def getHangmanByType(request):
-    hangmans = list(Hangman.objects.all().values())
-    return JsonResponse(hangmans,safe=False)
+    types = request.POST.get('types')
+    types=types.capitalize()
+
+    hangmans = list(Hangman.objects.filter(types=types).values())
+    random.shuffle(hangmans)
+    hangman=hangmans.pop()
+    return JsonResponse(hangman,safe=False)
