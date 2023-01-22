@@ -2,6 +2,7 @@ $primary_color: #246ee9;
 $secondary_color: #db5a6e;
 $secondary_color_darker: #d7485d;
 $secondary_color_dark: #d0203a;
+$secondary_color_disabled: rgba(219,90,110,0.75);
 $grey: rgba(111, 85, 0, 0.25);
 $disabled: #efefef;
 $light_grey: #808080;
@@ -164,6 +165,7 @@ nav {
         color: $font_color_secundary;
         border-radius: 0.3em;
         text-transform: capitalize;
+        margin: 0px 5px;
 
         &:disabled {
           border: 3px solid $light_grey;
@@ -172,7 +174,7 @@ nav {
         }
 
         &.active {
-          background-color: $secondary_color;
+          background-color: $secondary_color_disabled;
           border: 3px solid $font_color_secundary;
           color: $font_color_secundary;
         }
@@ -187,6 +189,7 @@ nav {
     justify-content: center;
     gap: 0.6em;
   }
+
   #letter-container {
     button {
       height: 2.4em;
@@ -194,6 +197,11 @@ nav {
       border-radius: 0.3em;
       background-color: $font_color;
       color: $font_color_secundary;
+
+      &:disabled {
+        background-color: $secondary_color_disabled !important;
+        border: 2px solid $font_color_secundary !important;
+      }
     }
   }
 
@@ -234,7 +242,7 @@ nav {
 
   #result-text {
     h2 {
-      font-size: 1.8em;
+      font-size: 2.5em;
       text-align: center;
     }
     p {
@@ -246,12 +254,12 @@ nav {
         color: $font_color_secundary;
       }
     }
-    
+
     .win-msg {
       color: #39d78d;
     }
     .lose-msg {
-      color: #fe5152;
+      color: red;
     }
   }
 

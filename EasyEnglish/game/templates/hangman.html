@@ -11,7 +11,7 @@
         <canvas id="canvas"></canvas>
         <div id="new-game-container" class="new-game-popup hide">
           <div id="result-text"></div>
-          <button id="new-game-button">New Game</button>
+          <button id="new-game-button">Nueva partida</button>
         </div>
       </div>
       <!-- Script -->
@@ -76,7 +76,7 @@
         
                     //if winCount equals word lenfth
                     if (winCount == charArray.length) {
-                      resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
+                      resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>La palabra era <span>${chosenWord}</span></p>`;
         
                       //block all buttons
                       blocker();
@@ -92,7 +92,7 @@
         
                 //Count==6 because head,body,left arm, right arm,left leg,right leg
                 if (count == 6) {
-                  resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>The word was <span>${chosenWord}</span></p>`;
+                  resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>La palabra era <span>${chosenWord}</span></p>`;
         
                   blocker();
                 }
@@ -167,7 +167,7 @@
         
           //If optionValur matches the button innerText then highlight the button
           optionsButtons.forEach((button) => {
-            if (button.innerText.toLowerCase() === optionValue || button.innerText.toLowerCase() === "school material") {
+            if (button.innerText.toLowerCase() === optionValue || (button.innerText.toLowerCase() === "school material" && optionValue.toLowerCase()==="school material")) {
               button.classList.add("active");
             }
             button.disabled = true;
@@ -187,7 +187,6 @@
             data: datuak,
             dataType:'json',
             success: function (response) {
-              alert(response.word);
         
               //choose random word
               chosenWord = response.word;
