@@ -24,4 +24,5 @@ def getHangmanByType(request):
     hangmans = list(Hangman.objects.filter(types=types).values())
     random.shuffle(hangmans)
     hangman=hangmans.pop()
+
     return JsonResponse(hangman,safe=False)

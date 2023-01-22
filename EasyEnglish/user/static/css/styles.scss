@@ -254,6 +254,12 @@ nav {
         color: $font_color_secundary;
       }
     }
+    
+    img{
+      width: 150px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
 
     .win-msg {
       color: #39d78d;
@@ -270,5 +276,6 @@ nav {
     border: 3px solid $font_color_secundary;
     color: $font_color_secundary;
     border-radius: 0.2em;
+    margin-bottom: 20px;
   }
 }

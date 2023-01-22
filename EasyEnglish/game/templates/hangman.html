@@ -12,6 +12,7 @@
         <div id="new-game-container" class="new-game-popup hide">
           <div id="result-text"></div>
           <button id="new-game-button">Nueva partida</button>
+          <button id="new-game-button">Volver al menu principal</button>
         </div>
       </div>
       <!-- Script -->
@@ -34,6 +35,8 @@
         let winCount = 0;
         let count = 0;
         let chosenWord = "";
+        let translation = "";
+        let photo = "";
         
         /**
          * Initial Function (Called when page loads/user presses new game)
@@ -76,7 +79,7 @@
         
                     //if winCount equals word lenfth
                     if (winCount == charArray.length) {
-                      resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>La palabra era <span>${chosenWord}</span></p>`;
+                      resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
         
                       //block all buttons
                       blocker();
@@ -92,7 +95,7 @@
         
                 //Count==6 because head,body,left arm, right arm,left leg,right leg
                 if (count == 6) {
-                  resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>La palabra era <span>${chosenWord}</span></p>`;
+                  resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
         
                   blocker();
                 }
@@ -105,9 +108,6 @@
             letterContainer.append(button);
           }
         
-          
-        
-          // HERE CALL THE DATA
           displayOptions();
         
           //Call to canvasCreator (for clearing previous canvas and creating initial canvas)
@@ -190,6 +190,8 @@
         
               //choose random word
               chosenWord = response.word;
+              translation = response.spanish;
+              photo = "../../media/"+response.photo;
               chosenWord = chosenWord.toUpperCase();
             
               //replace every letter with span containing dash
@@ -283,7 +285,5 @@
         newGameButton.addEventListener("click", initializer);
         window.onload = initializer;
         </script>
-      
 </div>
-
 {% endblock content %}
