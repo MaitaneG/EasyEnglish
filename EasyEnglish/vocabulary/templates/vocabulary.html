@@ -6,23 +6,58 @@
 <div class="grid">
     <aside class="aukerak">
       <h4 class="mb-5">Elige la categoría</h4>
-      <button class="btn">Animals</button>
+      <button class="btn">Animal</button>
       <button class="btn">Food</button>
       <button class="btn">Furniture</button>
       <button class="btn">School material</button>
     </aside>
   
-    <div class="wrapper_tituloa">
+    <div class="tituloa">
       <h1>Vocabulary</h1>
     </div>
-    <section id="janariak" class="wrapper_janaria">
+    <section id="vocabulary" class="vocabulary">
       {% for word in vocabulary%}
-      <div id="janaria" class="text-center">
+      <div id="word">
           <img src="../../media/{{word.photo}}" />
-          <p id="janari_izena">{{word.word}}</p>
+          <p>{{word.word}}</p>
       </div>
       {% endfor %}
     </section>
   </div>
 
+  <script>
+    $(document).ready(function(){
+    $("button").click(function(e){
+      
+      e.preventDefault();
+      let types =$(this).text();
+  
+      let csrftoken = '{{ csrf_token }}';
+      let data= {types:types}
+      
+      $.ajax({
+        type: 'POST',
+        headers:{'X-CSRFToken':csrftoken},
+        url: "{% url 'clasified_vocabulary' %}",
+        data: data,
+        dataType:'json',
+        success: function (response) {
+          kodigoa=""
+          for(let i=0; i<response.length;i++){
+            kodigoa += '<div id="word">';
+               
+            kodigoa+='<img src="../../media/'+response[i].photo+'"/>';
+            kodigoa+='<p>'+response[i].word+'</p>';
+            kodigoa+='</div>';
+            
+            $("#vocabulary").html(kodigoa);
+          }
+        },
+        error: function (response) {
+            alert("Errore bat egon da kargatzerakoan")
+        },
+      })
+    });
+  });
+  </script>
 {% endblock content %}

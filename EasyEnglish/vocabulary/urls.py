@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     path('vocabulary/',views.vocabulary,name='vocabulary'),
+    path('clasified_vocabulary/',views.clasifiedVocabulary,name='clasified_vocabulary'),
 ]
 
 if settings.DEBUG:   
