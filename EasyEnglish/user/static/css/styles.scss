@@ -17,7 +17,7 @@ $font_size_small_button: 20px;
 
 * {
   color: $font_color;
-  font-family: $font_family;
+  font-family: $font_family, FontAwesome;
 }
 
 h1 {
@@ -113,6 +113,24 @@ body {
   text-align: center;
   margin-top: 50px;
   padding: 0 !important;
+
+  .floating_button{
+    position: fixed;
+    background-color: $secondary_color;
+    padding: 15px;
+    color: $font_color !important;
+    right: 5vh;
+    bottom: 10vh;
+    font-size: $font_size_small_button;
+
+    &:hover{
+      background-color: $secondary_color_darker;
+    }
+
+    &:active{
+      background-color: $secondary_color_dark;
+    }
+  }
 }
 
 nav {

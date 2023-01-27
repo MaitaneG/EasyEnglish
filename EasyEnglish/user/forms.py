@@ -18,7 +18,7 @@ class RegisterForm(forms.Form):
     fields = ['email', 'username', 'password']
 
     email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'placeholder': '  Correo',  'class': 'form-control'}))
+        widget=forms.EmailInput(attrs={'placeholder': '  Correo',  'class': 'form-control'}))
     username = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': '  Usuario',  'class': 'form-control'}))
     password = forms.CharField(

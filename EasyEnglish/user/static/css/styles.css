@@ -1,6 +1,6 @@
 * {
   color: white;
-  font-family: Montagu Slab;
+  font-family: Montagu Slab, FontAwesome;
 }
 
 h1 {
@@ -88,6 +88,21 @@ body {
   text-align: center;
   margin-top: 50px;
   padding: 0 !important;
+}
+.games_container .floating_button {
+  position: fixed;
+  background-color: #db5a6e;
+  padding: 15px;
+  color: white !important;
+  right: 5vh;
+  bottom: 10vh;
+  font-size: 20px;
+}
+.games_container .floating_button:hover {
+  background-color: #d7485d;
+}
+.games_container .floating_button:active {
+  background-color: #d0203a;
 }
 
 nav {
