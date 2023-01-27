@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Vocabulary{% endblock title %} 
+{% block content %}
+
+<div class="grid">
+    <aside class="aukerak">
+      <h4 class="mb-5">Elige la categoría</h4>
+      <button class="btn">Animals</button>
+      <button class="btn">Food</button>
+      <button class="btn">Furniture</button>
+      <button class="btn">School material</button>
+    </aside>
+  
+    <div class="wrapper_tituloa">
+      <h1>Vocabulary</h1>
+    </div>
+    <section id="janariak" class="wrapper_janaria">
+      {% for word in vocabulary%}
+      <div id="janaria" class="text-center">
+          <img src="../../media/{{word.photo}}" />
+          <p id="janari_izena">{{word.word}}</p>
+      </div>
+      {% endfor %}
+    </section>
+  </div>
+
+{% endblock content %}
