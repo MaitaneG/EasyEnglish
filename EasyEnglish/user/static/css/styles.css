@@ -303,22 +303,50 @@ nav h3 {
   padding: 20px 0px;
   row-gap: 20px;
 }
-.grid .vocabulary div {
+.grid .vocabulary a {
   flex-basis: 15%;
+}
+.grid .vocabulary a div {
   border: 2px solid black;
   box-shadow: 5px 5px #db5a6e;
   border-radius: 20px;
   text-align: center;
   padding: 1rem;
   background-color: white;
+  cursor: pointer;
 }
-.grid .vocabulary div p {
+.grid .vocabulary a div p {
   margin-top: 0.5rem;
   margin-bottom: 0rem;
   color: black;
   font-size: 1.5rem;
 }
-.grid .vocabulary div img {
+.grid .vocabulary a div img {
   width: 100%;
+  max-width: 25vh;
   border-radius: 20px;
+}
+@media (max-width: 1440px) {
+  .grid .vocabulary a div img {
+    max-width: 15vh;
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .grid .vocabulary a div img {
+    max-width: 70px;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .grid .vocabulary a div img {
+    max-width: 60px;
+    width: 100%;
+  }
+}
+.grid .modal-header * {
+  color: black !important;
+}
+.grid .modal-body * {
+  color: black !important;
 }/*# sourceMappingURL=styles.css.map */

@@ -361,27 +361,66 @@ nav {
     justify-content: space-evenly;
     padding: 20px 0px;
     row-gap: 20px;
-
-    div {
+    
+    a{
       flex-basis: 15%;
-      border: 2px solid black;
-      box-shadow: 5px 5px $secondary_color;
-      border-radius:20px;
-      text-align: center;
-      padding: 1rem;
-      background-color: $font_color;
+      div {
+        border: 2px solid black;
+        box-shadow: 5px 5px $secondary_color;
+        border-radius:20px;
+        text-align: center;
+        padding: 1rem;
+        background-color: $font_color;
+        cursor: pointer;
 
-      p {
-        margin-top: 0.5rem;
-        margin-bottom: 0rem;
-        color: black;
-        font-size: 1.5rem;
-      }
+        p {
+          margin-top: 0.5rem;
+          margin-bottom: 0rem;
+          color: black;
+          font-size: 1.5rem;
+        }
 
-      img {
-        width: 100%;
-        border-radius: 20px;
+        img {
+          width: 100%;
+          max-width: 25vh;
+          border-radius: 20px;
+        }
+
+        
+        @media (max-width: 1440px) {
+          img{
+            max-width: 15vh;
+            width: 100%;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          img{
+            max-width: 70px;
+            width: 100%;
+          }
+        }
+
+        @media (max-width: 600px) {
+          img{
+            max-width: 60px;
+            width: 100%;
+          }
+        }
+
       }
+    }
+    
+  }
+
+  .modal-header{
+    *{
+      color: $font_color_secundary !important;
+    }
+  }
+  .modal-body{
+    *{
+      color: $font_color_secundary !important;
     }
   }
 }

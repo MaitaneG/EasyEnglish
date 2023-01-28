@@ -16,17 +16,49 @@
       <h1>Vocabulary</h1>
     </div>
     <section id="vocabulary" class="vocabulary">
-      {% for word in vocabulary%}
+      {% for word in vocabulary %}
+      <a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="{{word.word}}" data-spanish="{{word.spanish}}" class="open-dialog">
       <div id="word">
           <img src="../../media/{{word.photo}}" />
           <p>{{word.word}}</p>
       </div>
+    </a>
       {% endfor %}
     </section>
-  </div>
 
+    <!-- The Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+  
   <script>
     $(document).ready(function(){
+      $(document).on("click", ".open-dialog", function () {
+      
+      var word = $(this).data('word');
+      var spanish = $(this).data('spanish');
+      
+      $(".modal-header").html("<h5>"+ word+"</h5><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
+
+      $(".modal-body").html("<p>Significa <b>"+spanish+"</b></p>");
+
+});
+
+
     $("button").click(function(e){
       
       e.preventDefault();
@@ -44,11 +76,12 @@
         success: function (response) {
           kodigoa=""
           for(let i=0; i<response.length;i++){
+            kodigoa += '<a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="'+response[i].word+'" data-spanish="'+response[i].spanish+'" class="open-dialog">';
             kodigoa += '<div id="word">';
                
             kodigoa+='<img src="../../media/'+response[i].photo+'"/>';
             kodigoa+='<p>'+response[i].word+'</p>';
-            kodigoa+='</div>';
+            kodigoa+='</div></a>';
             
             $("#vocabulary").html(kodigoa);
           }
