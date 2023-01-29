@@ -2,7 +2,7 @@ $primary_color: #246ee9;
 $secondary_color: #db5a6e;
 $secondary_color_darker: #d7485d;
 $secondary_color_dark: #d0203a;
-$secondary_color_disabled: rgba(219,90,110,0.75);
+$secondary_color_disabled: rgba(219, 90, 110, 0.75);
 $grey: rgba(111, 85, 0, 0.25);
 $disabled: #efefef;
 $light_grey: #808080;
@@ -114,7 +114,7 @@ body {
   margin-top: 50px;
   padding: 0 !important;
 
-  .floating_button{
+  .floating_button {
     position: fixed;
     background-color: $secondary_color;
     padding: 15px;
@@ -123,11 +123,11 @@ body {
     bottom: 10vh;
     font-size: $font_size_small_button;
 
-    &:hover{
+    &:hover {
       background-color: $secondary_color_darker;
     }
 
-    &:active{
+    &:active {
       background-color: $secondary_color_dark;
     }
   }
@@ -256,7 +256,6 @@ nav {
     justify-content: center;
     flex-direction: column;
     border-radius: 0.6em;
-  
 
     #result-text {
       h2 {
@@ -272,13 +271,13 @@ nav {
           color: $font_color_secundary;
         }
       }
-      
-      img{
+
+      img {
         width: 150px;
         border-radius: 30px;
         margin-bottom: 20px;
       }
-  
+
       .win-msg {
         color: #39d78d;
       }
@@ -286,7 +285,7 @@ nav {
         color: red;
       }
     }
-  
+
     button {
       font-size: 1.25em;
       padding: 0.5em 1em;
@@ -296,11 +295,11 @@ nav {
       border-radius: 0.2em;
       margin-bottom: 20px;
 
-      &:hover{
+      &:hover {
         background-color: $secondary_color_darker;
       }
 
-      &:active{
+      &:active {
         background-color: $secondary_color_dark;
       }
     }
@@ -308,7 +307,7 @@ nav {
 }
 
 /* Vocabulary */
-.grid {
+.grid_vocabulary {
   display: grid;
   grid-template-rows: 150px auto;
   grid-template-columns: 24% 1fr;
@@ -328,25 +327,24 @@ nav {
     display: flex;
     flex-direction: column;
 
-    h4{
+    h4 {
       color: $font_color_secundary;
     }
 
-    button{
+    button {
       background-color: $secondary_color;
       padding: 15px;
       color: $font_color !important;
       font-size: $font_size_small_button;
       display: block;
       margin: 10px 15px 10px;
-      border:3px solid black;
-      
+      border: 3px solid black;
 
-      &:hover{
+      &:hover {
         background-color: $secondary_color_darker;
       }
 
-      &:active{
+      &:active {
         background-color: $secondary_color_dark;
       }
     }
@@ -370,13 +368,13 @@ nav {
     justify-content: space-evenly;
     padding: 20px 0px;
     row-gap: 20px;
-    
-    a{
+
+    a {
       flex-basis: 15%;
       div {
         border: 2px solid black;
         box-shadow: 5px 5px $secondary_color;
-        border-radius:20px;
+        border-radius: 20px;
         text-align: center;
         padding: 1rem;
         background-color: $font_color;
@@ -395,41 +393,104 @@ nav {
           border-radius: 20px;
         }
 
-        
         @media (max-width: 1440px) {
-          img{
+          img {
             max-width: 15vh;
             width: 100%;
           }
         }
 
         @media (max-width: 1024px) {
-          img{
+          img {
             max-width: 70px;
             width: 100%;
           }
         }
 
         @media (max-width: 600px) {
-          img{
+          img {
             max-width: 60px;
             width: 100%;
           }
         }
-
       }
     }
-    
   }
 
-  .modal-header{
-    *{
+  .modal-header {
+    * {
       color: $font_color_secundary !important;
     }
   }
-  .modal-body{
-    *{
+  .modal-body {
+    * {
       color: $font_color_secundary !important;
     }
   }
+}
+
+/* Memory game */
+.grid_memory {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  grid-gap: 10px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+
+  .cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    width: 35vh;
+    border-radius: 30px;
+    border: 2px solid $secondary_color;
+
+
+    div {
+      height: 15vh;
+      width: 35vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+
+      img {
+        width: inherit;
+        height: inherit;
+        border-radius: 30px;
+      }
+    }
+
+    .front {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $font_color;
+      transform: rotateY(90deg);
+
+      p {
+        color: $font_color_secundary;
+        font-size: $font_size_small_button;
+      }
+    }
+
+    .back {
+      background-color: $secondary_color;
+      cursor: pointer;
+    }
+    .flip,
+    .matched,
+    .show {
+      transform: rotateY(0deg);
+    }
+  }
+  
 }

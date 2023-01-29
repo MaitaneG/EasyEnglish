@@ -254,14 +254,14 @@ nav h3 {
 }
 
 /* Vocabulary */
-.grid {
+.grid_vocabulary {
   display: grid;
   grid-template-rows: 150px auto;
   grid-template-columns: 24% 1fr;
   grid-gap: 10px;
   margin-bottom: 50px;
 }
-.grid .aukerak {
+.grid_vocabulary .aukerak {
   grid-column: 1/2;
   grid-row: 1/2;
   background-color: white;
@@ -273,10 +273,10 @@ nav h3 {
   display: flex;
   flex-direction: column;
 }
-.grid .aukerak h4 {
+.grid_vocabulary .aukerak h4 {
   color: black;
 }
-.grid .aukerak button {
+.grid_vocabulary .aukerak button {
   background-color: #db5a6e;
   padding: 15px;
   color: white !important;
@@ -285,20 +285,20 @@ nav h3 {
   margin: 10px 15px 10px;
   border: 3px solid black;
 }
-.grid .aukerak button:hover {
+.grid_vocabulary .aukerak button:hover {
   background-color: #d7485d;
 }
-.grid .aukerak button:active {
+.grid_vocabulary .aukerak button:active {
   background-color: #d0203a;
 }
-.grid .tituloa {
+.grid_vocabulary .tituloa {
   grid-column: 2/3;
   grid-row: 1/2;
   display: flex;
   align-items: end;
   justify-content: center;
 }
-.grid .vocabulary {
+.grid_vocabulary .vocabulary {
   grid-column: 2/3;
   grid-row: 2/3;
   margin: 0px 5%;
@@ -309,10 +309,10 @@ nav h3 {
   padding: 20px 0px;
   row-gap: 20px;
 }
-.grid .vocabulary a {
+.grid_vocabulary .vocabulary a {
   flex-basis: 15%;
 }
-.grid .vocabulary a div {
+.grid_vocabulary .vocabulary a div {
   border: 2px solid black;
   box-shadow: 5px 5px #db5a6e;
   border-radius: 20px;
@@ -321,38 +321,96 @@ nav h3 {
   background-color: white;
   cursor: pointer;
 }
-.grid .vocabulary a div p {
+.grid_vocabulary .vocabulary a div p {
   margin-top: 0.5rem;
   margin-bottom: 0rem;
   color: black;
   font-size: 1.5rem;
 }
-.grid .vocabulary a div img {
+.grid_vocabulary .vocabulary a div img {
   width: 100%;
   max-width: 25vh;
   border-radius: 20px;
 }
 @media (max-width: 1440px) {
-  .grid .vocabulary a div img {
+  .grid_vocabulary .vocabulary a div img {
     max-width: 15vh;
     width: 100%;
   }
 }
 @media (max-width: 1024px) {
-  .grid .vocabulary a div img {
+  .grid_vocabulary .vocabulary a div img {
     max-width: 70px;
     width: 100%;
   }
 }
 @media (max-width: 600px) {
-  .grid .vocabulary a div img {
+  .grid_vocabulary .vocabulary a div img {
     max-width: 60px;
     width: 100%;
   }
 }
-.grid .modal-header * {
+.grid_vocabulary .modal-header * {
   color: black !important;
 }
-.grid .modal-body * {
+.grid_vocabulary .modal-body * {
   color: black !important;
+}
+
+/* Memory game */
+.grid_memory {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  grid-gap: 10px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+}
+.grid_memory .cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  width: 35vh;
+  border-radius: 30px;
+  border: 2px solid #db5a6e;
+}
+.grid_memory .cell div {
+  height: 15vh;
+  width: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+.grid_memory .cell div img {
+  width: inherit;
+  height: inherit;
+  border-radius: 30px;
+}
+.grid_memory .cell .front {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transform: rotateY(90deg);
+}
+.grid_memory .cell .front p {
+  color: black;
+  font-size: 20px;
+}
+.grid_memory .cell .back {
+  background-color: #db5a6e;
+  cursor: pointer;
+}
+.grid_memory .cell .flip,
+.grid_memory .cell .matched,
+.grid_memory .cell .show {
+  transform: rotateY(0deg);
 }/*# sourceMappingURL=styles.css.map */

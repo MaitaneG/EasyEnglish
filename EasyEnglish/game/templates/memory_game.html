@@ -1,0 +1,39 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %} Memory game {% endblock title %} 
+{% block content %} 
+<div class="home_page">
+    <div class="grid_memory">
+        <div class="cell">
+            <div class="front" data-index="1"><img src="../../media/Apple.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="1"><p>Apple</p></div>
+            <div class="back"></div>
+        </div>
+    </div>
+</div>
+<script>
+    const card = document.querySelectorAll('.cell');
+    const front = document.querySelectorAll('.front');
+    const attempts = 0;
+
+    const clicking =() => {
+        
+        for (let i = 0; i < card.length; i++) {
+        card[i].addEventListener('click', (e) => {
+            
+            front[i].classList.add('flip');
+            const flipped = document.querySelectorAll('.flip');
+
+            if (flipped.length == 2) {
+            //this.match(flipped[0], flipped[1]);
+            }
+        });
+        }
+    }
+
+    window.onload = clicking;
+</script>
+{% endblock content %}

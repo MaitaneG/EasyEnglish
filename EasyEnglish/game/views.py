@@ -13,6 +13,9 @@ def game(request):
 def hangman(request):
     return render(request, 'hangman.html')
 
+def memoryGame(request):
+    return render(request, 'memory_game.html')
+
 def logout(request):
     auth_logout(request)
     return redirect('index')
