@@ -213,31 +213,31 @@ nav h3 {
   flex-direction: column;
   border-radius: 0.6em;
 }
-.container_hangman #result-text h2 {
+.container_hangman .new-game-popup #result-text h2 {
   font-size: 2.5em;
   text-align: center;
 }
-.container_hangman #result-text p {
+.container_hangman .new-game-popup #result-text p {
   font-size: 1.25em;
   margin: 1em 0 2em 0;
   color: black;
 }
-.container_hangman #result-text p span {
+.container_hangman .new-game-popup #result-text p span {
   font-weight: 600;
   color: black;
 }
-.container_hangman #result-text img {
+.container_hangman .new-game-popup #result-text img {
   width: 150px;
   border-radius: 30px;
   margin-bottom: 20px;
 }
-.container_hangman #result-text .win-msg {
+.container_hangman .new-game-popup #result-text .win-msg {
   color: #39d78d;
 }
-.container_hangman #result-text .lose-msg {
+.container_hangman .new-game-popup #result-text .lose-msg {
   color: red;
 }
-.container_hangman #new-game-button {
+.container_hangman .new-game-popup button {
   font-size: 1.25em;
   padding: 0.5em 1em;
   background-color: #db5a6e;
@@ -245,6 +245,12 @@ nav h3 {
   color: black;
   border-radius: 0.2em;
   margin-bottom: 20px;
+}
+.container_hangman .new-game-popup button:hover {
+  background-color: #d7485d;
+}
+.container_hangman .new-game-popup button:active {
+  background-color: #d0203a;
 }
 
 /* Vocabulary */

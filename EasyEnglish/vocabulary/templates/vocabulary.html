@@ -47,7 +47,7 @@
   
   <script>
     $(document).ready(function(){
-      $(document).on("click", ".open-dialog", function () {
+      $(".open-dialog").on("click", function () {
       
       var word = $(this).data('word');
       var spanish = $(this).data('spanish');
@@ -56,8 +56,7 @@
 
       $(".modal-body").html("<p>Significa <b>"+spanish+"</b></p>");
 
-});
-
+    });
 
     $("button").click(function(e){
       

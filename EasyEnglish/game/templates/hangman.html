@@ -12,7 +12,7 @@
         <div id="new-game-container" class="new-game-popup hide">
           <div id="result-text"></div>
           <button id="new-game-button">Nueva partida</button>
-          <button id="new-game-button">Volver al menu principal</button>
+          <button id="game-menu-button">Volver al menu principal</button>
         </div>
       </div>
       <!-- Script -->
@@ -22,6 +22,7 @@
         const userInputSection = document.getElementById("user-input-section");
         const newGameContainer = document.getElementById("new-game-container");
         const newGameButton = document.getElementById("new-game-button");
+        const gameMenuButton = document.getElementById("game-menu-button");
         const canvas = document.getElementById("canvas");
         const resultText = document.getElementById("result-text");
         //Options values for buttons
@@ -101,7 +102,6 @@
                 }
               }
         
-              //disable clicked button
               button.disabled = true;
             });
         
@@ -281,8 +281,14 @@
               break;
           }
         };
+
+        const gameMenu = () => {
+          window.location.href = "{% url 'game' %}"
+        }
+
         //New Game
         newGameButton.addEventListener("click", initializer);
+        gameMenuButton.addEventListener("click", gameMenu);
         window.onload = initializer;
         </script>
 </div>
