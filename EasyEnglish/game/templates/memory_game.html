@@ -12,28 +12,63 @@
             <div class="front" data-index="1"><p>Apple</p></div>
             <div class="back"></div>
         </div>
+        <div class="cell">
+            <div class="front" data-index="2"><img src="../../media/Banana.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="2"><p>Banana</p></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="3"><img src="../../media/Pencil.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="3"><p>Pencil</p></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="4"><img src="../../media/Backpack.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="4"><p>Backpack</p></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="5"><img src="../../media/Ladybug.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="5"><p>Ladybug</p></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="6"><img src="../../media/Jellyfish.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="6"><p>Jellyfish</p></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="7"><img src="../../media/Hamburger.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="7"><p>Hamburger</p></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="8"><img src="../../media/Desk.png" alt=""></div>
+            <div class="back"></div>
+        </div>
+        <div class="cell">
+            <div class="front" data-index="8"><p>Desk</p></div>
+            <div class="back"></div>
+        </div>
     </div>
 </div>
-<script>
-    const card = document.querySelectorAll('.cell');
-    const front = document.querySelectorAll('.front');
-    const attempts = 0;
-
-    const clicking =() => {
-        
-        for (let i = 0; i < card.length; i++) {
-        card[i].addEventListener('click', (e) => {
-            
-            front[i].classList.add('flip');
-            const flipped = document.querySelectorAll('.flip');
-
-            if (flipped.length == 2) {
-            //this.match(flipped[0], flipped[1]);
-            }
-        });
-        }
-    }
-
-    window.onload = clicking;
-</script>
+<script src="{% static 'js/memory_game.js' %}"></script>
 {% endblock content %}
