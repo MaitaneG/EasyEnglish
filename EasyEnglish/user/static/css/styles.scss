@@ -438,9 +438,9 @@ nav {
   align-items: center;
   grid-gap: 20px;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   padding: 5vh 20vw;
-  
+
   .cell {
     position: relative;
     display: flex;
@@ -493,5 +493,41 @@ nav {
       transform: rotateY(0deg);
     }
   }
-  
+}
+
+/* Match vocabulary */
+.grid_match {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 7vh 10vw;
+
+  .photo{
+    grid-column: 1/2;
+  }
+  .text{
+    grid-column: 4/5;
+  }
+  div {
+    border-radius: 30px;
+    width: 50%;
+    height: 20vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+    }
+    p{
+      margin: 0;
+      color: $font_color_secundary;
+    }
+  }
 }

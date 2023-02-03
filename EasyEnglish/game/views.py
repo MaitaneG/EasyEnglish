@@ -16,6 +16,9 @@ def hangman(request):
 def memoryGame(request):
     return render(request, 'memory_game.html')
 
+def matchVocabulary(request):
+    return render(request, 'match_vocabulary.html')
+
 def logout(request):
     auth_logout(request)
     return redirect('index')
