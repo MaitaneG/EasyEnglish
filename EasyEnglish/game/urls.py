@@ -9,6 +9,7 @@ urlpatterns=[
     path('game/memory_game/',views.memoryGame,name='memory_game'),
     path('logout/',views.logout,name='logout'),
     path('get_hangman_by_type/',views.getHangmanByType,name='getHangmanByType'),
+    path('getMemoryCards/',views.getMemoryCards,name='getMemoryCards'),
 ]
 
 if settings.DEBUG:   

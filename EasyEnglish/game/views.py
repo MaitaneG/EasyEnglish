@@ -29,3 +29,17 @@ def getHangmanByType(request):
     hangman=hangmans.pop()
 
     return JsonResponse(hangman,safe=False)
+
+def getMemoryCards(request):
+    quantity = request.POST.get('quantity')
+
+    words = list(Hangman.objects.all().values())
+    random.shuffle(words)
+
+    cardsWords=[]
+    for i in range(int(quantity)):
+        cardsWords.append(words.pop(i))
+        
+    print(cardsWords)
+
+    return JsonResponse(cardsWords,safe=False)
