@@ -449,7 +449,6 @@ nav {
     height: inherit;
     width: inherit;
     border-radius: 30px;
-    border: 2px solid $secondary_color;
 
     div {
       height: inherit;
@@ -457,6 +456,7 @@ nav {
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 4px solid $font_color;
       border-radius: 30px;
 
       img {

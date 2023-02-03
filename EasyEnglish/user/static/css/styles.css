@@ -377,7 +377,6 @@ nav h3 {
   height: inherit;
   width: inherit;
   border-radius: 30px;
-  border: 2px solid #db5a6e;
 }
 .grid_memory .cell div {
   height: inherit;
@@ -385,6 +384,7 @@ nav h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 4px solid white;
   border-radius: 30px;
 }
 .grid_memory .cell div img {
