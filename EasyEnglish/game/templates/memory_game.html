@@ -160,13 +160,13 @@
                     cards.forEach((card) => {
                         if (card.dataset['index'] == i) {
                             if (card.dataset['type'] == "photo") {
-                                card.innerHTML = "<img src='../../media/" + response[i].photo + "'>"
+                                card.innerHTML = "<img src='../../media/" + response[i].photo + "'>";
                             }
                             if (card.dataset['type'] == "text") {
-                                card.innerHTML = "<p>" + response[i].word + "</p>"
+                                card.innerHTML = "<p>" + response[i].word + "</p>";
                             }
                         }
-                    })
+                    });
                 }
             },
         });

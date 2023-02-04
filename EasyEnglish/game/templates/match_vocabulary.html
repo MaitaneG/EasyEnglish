@@ -4,28 +4,28 @@
 {% block content %}
 <div class="home_page">
     <div class="grid_match">
-        <div class="photo card" data-index="0">
+        <div class="photo card" data-index="0" data-type="photo">
             <img src="../../media/Apple.png" alt="">
         </div>
-        <div class="text card" data-index="0">
+        <div class="text card" data-index="0" data-type="text">
             <p>Apple</p>
         </div>
-        <div class="photo card" data-index="1">
+        <div class="photo card" data-index="1" data-type="photo">
             <img src="../../media/Banana.png" alt="">
         </div>
-        <div class="text card" data-index="1">
+        <div class="text card" data-index="1" data-type="text">
             <p>Banana</p>
         </div>
-        <div class="photo card" data-index="2">
+        <div class="photo card" data-index="2" data-type="photo">
             <img src="../../media/Pencil.png" alt="">
         </div>
-        <div class="text card" data-index="2">
+        <div class="text card" data-index="2" data-type="text">
             <p>Pencil</p>
         </div>
-        <div class="photo card" data-index="3">
+        <div class="photo card" data-index="3" data-type="photo">
             <img src="../../media/Backpack.png" alt="">
         </div>
-        <div class="text card" data-index="3">
+        <div class="text card" data-index="3" data-type="text">
             <p>Backpack</p>
         </div>
     </div>
@@ -40,7 +40,30 @@
     }
 
     const getCards = () => {
+        let csrftoken = '{{ csrf_token }}';
+        let datuak = { quantity: 4 }
+        $.ajax({
+            type: 'POST',
+            headers: { 'X-CSRFToken': csrftoken },
+            url: '{% url "getCards" %}',
+            data: datuak,
+            dataType: 'json',
+            success: function (response) {
+                console.log(response)
 
+                for(let i=0;i<cards.length;i++){
+                    cards.forEach((card)=>{
+                        if(card.dataset['index']==i){
+                            if(card.dataset['type']=="photo"){
+                                card.innerHTML = "<img src='../../media/" + response[i].photo + "'>";
+                            }else{
+                                card.innerHTML = "<p>" + response[i].word + "</p>";
+                            }
+                        }
+                    });
+                }
+            },
+        });
     }
 
     const clicking = () => {
