@@ -33,7 +33,7 @@ def getHangmanByType(request):
 
     return JsonResponse(hangman,safe=False)
 
-def getMemoryCards(request):
+def getCards(request):
     quantity = request.POST.get('quantity')
 
     words = list(Hangman.objects.all().values())

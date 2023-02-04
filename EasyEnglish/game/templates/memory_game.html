@@ -1,7 +1,7 @@
-{% extends "base.html" %} 
-{% load static %} 
-{% block title %} Memory game {% endblock title %} 
-{% block content %} 
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Memory game {% endblock title %}
+{% block content %}
 <div class="home_page">
     <div class="grid_memory">
         <div class="cell">
@@ -9,7 +9,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="0" data-type="text"><p>Apple</p></div>
+            <div class="front" data-index="0" data-type="text">
+                <p>Apple</p>
+            </div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -17,7 +19,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="1" data-type="text"><p>Banana</p></div>
+            <div class="front" data-index="1" data-type="text">
+                <p>Banana</p>
+            </div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -25,7 +29,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="2" data-type="text"><p>Pencil</p></div>
+            <div class="front" data-index="2" data-type="text">
+                <p>Pencil</p>
+            </div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -33,7 +39,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="3" data-type="text"><p>Backpack</p></div>
+            <div class="front" data-index="3" data-type="text">
+                <p>Backpack</p>
+            </div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -41,7 +49,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="4" data-type="text"><p>Ladybug</p></div>
+            <div class="front" data-index="4" data-type="text">
+                <p>Ladybug</p>
+            </div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -49,7 +59,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="5" data-type="text"><p>Jellyfish</p></div>
+            <div class="front" data-index="5" data-type="text">
+                <p>Jellyfish</p>
+            </div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -57,7 +69,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="6" data-type="text"><p>Hamburger</p></div>
+            <div class="front" data-index="6" data-type="text">
+                <p>Hamburger</p>
+            </div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -65,7 +79,9 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="7" data-type="text"><p>Desk</p></div>
+            <div class="front" data-index="7" data-type="text">
+                <p>Desk</p>
+            </div>
             <div class="back"></div>
         </div>
     </div>
@@ -75,19 +91,23 @@
     const front = document.querySelectorAll('.front');
     var attempts = 0;
 
-    const clicking = () => {
+    const initializer = () => {
         getCards();
         suffleImage();
-        for (let i = 0; i < card.length; i++) {
-        card[i].addEventListener('click', (e) => {
-            
-            front[i].classList.add('flip');
-            const flipped = document.querySelectorAll('.flip');
+        clicking();
+    }
 
-            if (flipped.length == 2) {
-                match(flipped[0], flipped[1]);
-            }
-        });
+    const clicking = () => {
+        for (let i = 0; i < card.length; i++) {
+            card[i].addEventListener('click', (e) => {
+
+                front[i].classList.add('flip');
+                const flipped = document.querySelectorAll('.flip');
+
+                if (flipped.length == 2) {
+                    match(flipped[0], flipped[1]);
+                }
+            });
         }
     }
 
@@ -99,7 +119,7 @@
         }
     }
 
-    const cardsAreTheSame=(card1, card2)=>{
+    const cardsAreTheSame = (card1, card2) => {
         card1.classList.remove('flip');
         card2.classList.remove('flip');
 
@@ -107,12 +127,12 @@
         card2.classList.add('matched');
 
         const matched = document.querySelectorAll('.matched');
-        if(matched.length==16){
+        if (matched.length == 16) {
             alert("Bukatu duzu");
         }
     }
 
-    const cardsNotTheSame=(card1, card2)=>{
+    const cardsNotTheSame = (card1, card2) => {
         attempts++;
 
         if (attempts < 15) {
@@ -121,29 +141,29 @@
                 card2.classList.remove('flip');
             }, 1000);
         } else {
-            this.alert('Saiakera guztiak agortu dituzu');
+            alert('Saiakera guztiak agortu dituzu');
         }
     }
 
-    const getCards = () =>{
+    const getCards = () => {
         let csrftoken = '{{ csrf_token }}';
-          let datuak= {quantity:8}
-          $.ajax({
+        let datuak = { quantity: 8 }
+        $.ajax({
             type: 'POST',
-            headers:{'X-CSRFToken':csrftoken},
-            url: '{% url "getMemoryCards" %}',
+            headers: { 'X-CSRFToken': csrftoken },
+            url: '{% url "getCards" %}',
             data: datuak,
-            dataType:'json',
-            success: function (response) {                
+            dataType: 'json',
+            success: function (response) {
                 var cards = document.querySelectorAll(".front");
-                for(let i=0;i<response.length;i++){
-                    cards.forEach((card)=>{
-                        if(card.dataset['index']==i){
-                            if(card.dataset['type']=="photo"){
-                            card.innerHTML="<img src='../../media/"+response[i].photo+"'>"
+                for (let i = 0; i < response.length; i++) {
+                    cards.forEach((card) => {
+                        if (card.dataset['index'] == i) {
+                            if (card.dataset['type'] == "photo") {
+                                card.innerHTML = "<img src='../../media/" + response[i].photo + "'>"
                             }
-                            if(card.dataset['type']=="text"){
-                            card.innerHTML="<p>"+response[i].word+"</p>"
+                            if (card.dataset['type'] == "text") {
+                                card.innerHTML = "<p>" + response[i].word + "</p>"
                             }
                         }
                     })
@@ -151,18 +171,18 @@
             },
         });
     };
-    const suffleImage=()=> {
-    card.forEach(c => {
-        const num = [...Array(card.length).keys()]
-        const random = Math.floor(Math.random() * card.length)
-        c.style.order = num[random] + "";
-    })
+    const suffleImage = () => {
+        card.forEach(c => {
+            const num = [...Array(card.length).keys()]
+            const random = Math.floor(Math.random() * card.length)
+            c.style.order = num[random] + "";
+        })
 
-    front.forEach(c=>{
-        c.classList.remove("matched")
-    })
+        front.forEach(c => {
+            c.classList.remove("matched")
+        })
     }
 
-    window.onload = clicking;
+    window.onload = initializer;
 </script>
 {% endblock content %}

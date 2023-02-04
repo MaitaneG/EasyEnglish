@@ -434,6 +434,13 @@ nav h3 {
 .grid_match .text {
   grid-column: 4/5;
 }
+.grid_match .chosen {
+  border: 5px solid #db5a6e;
+}
+.grid_match .matched {
+  border: 5px solid #db5a6e;
+  opacity: 0.5;
+}
 .grid_match div {
   border-radius: 30px;
   width: 50%;
@@ -441,6 +448,7 @@ nav h3 {
   align-items: center;
   justify-content: center;
   margin: 0;
+  cursor: pointer;
 }
 .grid_match div img {
   width: 100%;

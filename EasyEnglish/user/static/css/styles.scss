@@ -512,6 +512,13 @@ nav {
   .text{
     grid-column: 4/5;
   }
+  .chosen{
+    border: 5px solid $secondary_color;
+  } 
+  .matched{
+    border: 5px solid $secondary_color;
+    opacity: 0.5;
+  }
   div {
     border-radius: 30px;
     width: 50%;
@@ -519,6 +526,7 @@ nav {
     align-items: center;
     justify-content: center;
     margin: 0;
+    cursor: pointer;
 
     img {
       width: 100%;

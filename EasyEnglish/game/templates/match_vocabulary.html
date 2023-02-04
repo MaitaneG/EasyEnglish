@@ -1,33 +1,96 @@
-{% extends "base.html" %} 
-{% load static %} 
-{% block title %} Match vocabulary {% endblock title %} 
-{% block content %} 
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Match vocabulary {% endblock title %}
+{% block content %}
 <div class="home_page">
     <div class="grid_match">
-        <div class="photo card">
+        <div class="photo card" data-index="0">
             <img src="../../media/Apple.png" alt="">
         </div>
-        <div class="text card">
+        <div class="text card" data-index="0">
             <p>Apple</p>
         </div>
-        <div class="photo card">
+        <div class="photo card" data-index="1">
             <img src="../../media/Banana.png" alt="">
         </div>
-        <div class="text card">
+        <div class="text card" data-index="1">
             <p>Banana</p>
         </div>
-        <div class="photo card">
+        <div class="photo card" data-index="2">
             <img src="../../media/Pencil.png" alt="">
         </div>
-        <div class="text card">
+        <div class="text card" data-index="2">
             <p>Pencil</p>
         </div>
-        <div class="photo card">
+        <div class="photo card" data-index="3">
             <img src="../../media/Backpack.png" alt="">
         </div>
-        <div class="text card">
+        <div class="text card" data-index="3">
             <p>Backpack</p>
         </div>
     </div>
 </div>
+<script>
+    const cards = document.querySelectorAll('.card');
+    var attempts = 0;
+
+    const initializer = () => {
+        getCards();
+        clicking();
+    }
+
+    const getCards = () => {
+
+    }
+
+    const clicking = () => {
+        cards.forEach((card) => {
+            card.addEventListener('click', (e) => {
+                card.classList.add("chosen");
+                const chosen = document.querySelectorAll(".chosen");
+
+                if (chosen.length == 2) {
+                    match(chosen[0], chosen[1]);
+                }
+            });
+        });
+    }
+
+    const match = (chosen1, chosen2) => {
+        if (chosen1.dataset['index'] == chosen2.dataset['index']) {
+            cardsAreTheSame(chosen1, chosen2);
+        } else {
+            cardsNotTheSame(chosen1, chosen2);
+        }
+    }
+
+    const cardsAreTheSame = (chosen1, chosen2) => {
+        chosen1.classList.remove('chosen');
+        chosen2.classList.remove('chosen');
+
+        chosen1.classList.add('matched');
+        chosen2.classList.add('matched');
+
+        matched = document.querySelectorAll(".matched");
+
+        if (matched.length == 8) {
+            alert("Bukatu duzu");
+        }
+    }
+
+    const cardsNotTheSame = (chosen1, chosen2) => {
+        attempts++;
+
+        if(attempts<4){
+            setTimeout(()=>{
+                chosen1.classList.remove("chosen");
+                chosen2.classList.remove("chosen");
+            }, 1000);
+        }else{
+            alert("Saiakera guztiak agortu dituzu");
+        }
+    }
+
+    window.onload = initializer;
+</script>
 {% endblock content %}

@@ -10,7 +10,7 @@ urlpatterns=[
     path('game/match_vocabulary/',views.matchVocabulary,name='match_vocabulary'),
     path('logout/',views.logout,name='logout'),
     path('get_hangman_by_type/',views.getHangmanByType,name='getHangmanByType'),
-    path('getMemoryCards/',views.getMemoryCards,name='getMemoryCards'),
+    path('getCards/',views.getCards,name='getCards'),
 ]
 
 if settings.DEBUG:   
