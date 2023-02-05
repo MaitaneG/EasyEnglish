@@ -17,7 +17,7 @@
     </div>
     <section id="vocabulary" class="vocabulary">
       {% for word in vocabulary %}
-      <a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="{{word.word}}" data-spanish="{{word.spanish}}" class="open-dialog">
+      <a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="{{word.word}}" data-spanish="{{word.spanish}}" data-audio="{{word.audio}}" class="open-dialog">
       <div id="word">
           <img src="/media/{{word.photo}}" />
           <p>{{word.word}}</p>
@@ -51,10 +51,12 @@
       
       var word = $(this).data('word');
       var spanish = $(this).data('spanish');
+      var audio = $(this).data('audio');
+      console.log(audio)
       
       $(".modal-header").html("<h5>"+ word+"</h5><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
 
-      $(".modal-body").html("<p>Significa <b>"+spanish+"</b></p> <button class='btn'><span><i class='fa-solid fa-volume-high'></i></span></button>");
+      $(".modal-body").html("<p>Significa <b>"+spanish+"</b></p><audio controls><source src='/media/"+audio+"' type='audio/mp3'></audio>");
 
     });
 
