@@ -42,7 +42,5 @@ def getCards(request):
     cardsWords=[]
     for i in range(int(quantity)):
         cardsWords.append(words.pop(i))
-        
-    print(cardsWords)
 
     return JsonResponse(cardsWords,safe=False)
