@@ -356,6 +356,16 @@ nav h3 {
 .grid_vocabulary .modal-body * {
   color: black !important;
 }
+.grid_vocabulary .modal-footer button {
+  background-color: #db5a6e;
+  color: white;
+}
+.grid_vocabulary .modal-footer button:hover {
+  background-color: #d7485d;
+}
+.grid_vocabulary .modal-footer button:active {
+  background-color: #d0203a;
+}
 
 /* Memory game */
 .grid_memory {

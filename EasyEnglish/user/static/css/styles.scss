@@ -427,6 +427,18 @@ nav {
       color: $font_color_secundary !important;
     }
   }
+  .modal-footer {
+    button {
+      background-color: $secondary_color;
+      color: $font_color;
+      &:hover {
+        background-color: $secondary_color_darker;
+      }
+      &:active {
+        background-color: $secondary_color_dark;
+      }
+    }
+  }
 }
 
 /* Memory game */
@@ -506,16 +518,16 @@ nav {
   height: 100%;
   padding: 7vh 10vw;
 
-  .photo{
+  .photo {
     grid-column: 1/2;
   }
-  .text{
+  .text {
     grid-column: 4/5;
   }
-  .chosen{
+  .chosen {
     border: 5px solid $secondary_color;
-  } 
-  .matched{
+  }
+  .matched {
     border: 5px solid $secondary_color;
     opacity: 0.5;
   }
@@ -533,7 +545,7 @@ nav {
       height: 100%;
       border-radius: 30px;
     }
-    p{
+    p {
       margin: 0;
       color: $font_color_secundary;
     }

@@ -5,7 +5,7 @@
 <div class="home_page">
     <div class="grid_memory">
         <div class="cell">
-            <div class="front" data-index="0" data-type="photo"><img src="../../media/Apple.png" alt=""></div>
+            <div class="front" data-index="0" data-type="photo"><img src="/media/Apple.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -15,7 +15,7 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="1" data-type="photo"><img src="../../media/Banana.png" alt=""></div>
+            <div class="front" data-index="1" data-type="photo"><img src="/media/Banana.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -25,7 +25,7 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="2" data-type="photo"><img src="../../media/Pencil.png" alt=""></div>
+            <div class="front" data-index="2" data-type="photo"><img src="/media/Pencil.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -35,7 +35,7 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="3" data-type="photo"><img src="../../media/Backpack.png" alt=""></div>
+            <div class="front" data-index="3" data-type="photo"><img src="/media/Backpack.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -45,7 +45,7 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="4" data-type="photo"><img src="../../media/Ladybug.png" alt=""></div>
+            <div class="front" data-index="4" data-type="photo"><img src="/media/Ladybug.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -55,7 +55,7 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="5" data-type="photo"><img src="../../media/Jellyfish.png" alt=""></div>
+            <div class="front" data-index="5" data-type="photo"><img src="/media/Jellyfish.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -65,7 +65,7 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="6" data-type="photo"><img src="../../media/Hamburger.png" alt=""></div>
+            <div class="front" data-index="6" data-type="photo"><img src="/media/Hamburger.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -75,7 +75,7 @@
             <div class="back"></div>
         </div>
         <div class="cell">
-            <div class="front" data-index="7" data-type="photo"><img src="../../media/Desk.png" alt=""></div>
+            <div class="front" data-index="7" data-type="photo"><img src="/media/Desk.png" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="cell">
@@ -160,7 +160,7 @@
                     cards.forEach((card) => {
                         if (card.dataset['index'] == i) {
                             if (card.dataset['type'] == "photo") {
-                                card.innerHTML = "<img src='../../media/" + response[i].photo + "'>";
+                                card.innerHTML = "<img src='/media/" + response[i].photo + "'>";
                             }
                             if (card.dataset['type'] == "text") {
                                 card.innerHTML = "<p>" + response[i].word + "</p>";

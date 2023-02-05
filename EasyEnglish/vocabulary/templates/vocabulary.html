@@ -19,7 +19,7 @@
       {% for word in vocabulary %}
       <a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="{{word.word}}" data-spanish="{{word.spanish}}" class="open-dialog">
       <div id="word">
-          <img src="../../media/{{word.photo}}" />
+          <img src="/media/{{word.photo}}" />
           <p>{{word.word}}</p>
       </div>
     </a>
@@ -37,7 +37,7 @@
             
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
       
       $(".modal-header").html("<h5>"+ word+"</h5><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
 
-      $(".modal-body").html("<p>Significa <b>"+spanish+"</b></p>");
+      $(".modal-body").html("<p>Significa <b>"+spanish+"</b></p> <button class='btn'><span><i class='fa-solid fa-volume-high'></i></span></button>");
 
     });
 
@@ -78,7 +78,7 @@
             kodigoa += '<a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="'+response[i].word+'" data-spanish="'+response[i].spanish+'" class="open-dialog">';
             kodigoa += '<div id="word">';
                
-            kodigoa+='<img src="../../media/'+response[i].photo+'"/>';
+            kodigoa+='<img src="/media/'+response[i].photo+'"/>';
             kodigoa+='<p>'+response[i].word+'</p>';
             kodigoa+='</div></a>';
             
