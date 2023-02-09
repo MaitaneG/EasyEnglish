@@ -45,20 +45,10 @@
 
 </div>
   
-  <script>
-    $(document).ready(function(){
-      $(".open-dialog").on("click", function () {
-      
-      var word = $(this).data('word');
-      var spanish = $(this).data('spanish');
-      var audio = $(this).data('audio');
-      console.log(audio)
-      
-      $(".modal-header").html("<h3>"+ word+"</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
-
-      $(".modal-body").html("<h5>Significa <b>"+spanish+"</b></h5><audio controls><source src='/media/"+audio+"' type='audio/mp3'></audio>");
-
-    });
+<script>
+  $(document).ready(function(){
+    
+    dialog();
 
     $("button").click(function(e){
       
@@ -77,15 +67,16 @@
         success: function (response) {
           kodigoa=""
           for(let i=0; i<response.length;i++){
-            kodigoa += '<a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="'+response[i].word+'" data-spanish="'+response[i].spanish+'" class="open-dialog">';
+            kodigoa += '<a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="'+response[i].word+'" data-spanish="'+response[i].spanish+'" data-audio="'+response[i].audio+'" class="open-dialog">';
             kodigoa += '<div id="word">';
-               
             kodigoa+='<img src="/media/'+response[i].photo+'"/>';
             kodigoa+='<p>'+response[i].word+'</p>';
             kodigoa+='</div></a>';
             
             $("#vocabulary").html(kodigoa);
           }
+
+          dialog();
         },
         error: function (response) {
             alert("Ha habido un problema al cargar")
@@ -93,5 +84,19 @@
       })
     });
   });
-  </script>
+
+  function dialog(){
+    $(".open-dialog").on("click", function () {
+  
+    var word = $(this).data('word');
+    var spanish = $(this).data('spanish');
+    var audio = $(this).data('audio');
+    console.log(audio)
+    
+    $(".modal-header").html("<h3>"+ word+"</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
+
+    $(".modal-body").html("<h5>Significa <b>"+spanish+"</b></h5><audio controls><source src='/media/"+audio+"' type='audio/mp3'></audio>");
+    });
+  }
+</script>
 {% endblock content %}
