@@ -3,7 +3,7 @@
 {% block title %}EasyEnglish | Games {% endblock title %} 
 {% block content %} 
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <h3 class="navbar-brand">{{user.username}}</h3>
+  <a href="{% url 'profile' %}"><h3 class="navbar-brand">{{user.username}}</h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,7 +14,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a href="/logout">Cerrar sesión</a>
+        <a href="{% url 'logout' %}">Cerrar sesión</a>
       </li>
     </ul>
   </div>

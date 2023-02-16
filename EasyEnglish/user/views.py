@@ -55,6 +55,9 @@ def register(request):
     form=RegisterForm()
     return render(request, 'register.html',{'form':form})
 
+def profile(request):
+    return render(request, 'profile.html')
+
 def game(request):
     return render(request, 'game.html')
 
