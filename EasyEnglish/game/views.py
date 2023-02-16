@@ -2,27 +2,27 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout as auth_logout
 import random
 from django.http import JsonResponse
-
+from django.contrib.auth.decorators import login_required
 from game.models import Hangman
 
 # Create your views here.
+@login_required(login_url="/login")
 def game(request):
-    user=request.user
-    return render(request, 'game.html',{'user':user})
+    return render(request, 'game.html')
 
+@login_required(login_url="/login")
 def hangman(request):
     return render(request, 'hangman.html')
 
+@login_required(login_url="/login")
 def memoryGame(request):
     return render(request, 'memory_game.html')
 
+@login_required(login_url="/login")
 def matchVocabulary(request):
     return render(request, 'match_vocabulary.html')
 
-def logout(request):
-    auth_logout(request)
-    return redirect('index')
-
+@login_required(login_url="/login")
 def getHangmanByType(request):
     types = request.POST.get('types')
     types=types.capitalize()
@@ -33,6 +33,7 @@ def getHangmanByType(request):
 
     return JsonResponse(hangman,safe=False)
 
+@login_required(login_url="/login")
 def getCards(request):
     quantity = request.POST.get('quantity')
 
@@ -44,3 +45,7 @@ def getCards(request):
         cardsWords.append(words.pop(i))
 
     return JsonResponse(cardsWords,safe=False)
+
+def logout(request):
+    auth_logout(request)
+    return redirect('index')

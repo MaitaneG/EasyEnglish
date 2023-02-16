@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 
+from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, RegisterForm
 
 # Create your views here.
@@ -55,9 +56,11 @@ def register(request):
     form=RegisterForm()
     return render(request, 'register.html',{'form':form})
 
+@login_required(login_url="/login")
 def profile(request):
     return render(request, 'profile.html')
 
-def game(request):
+@login_required(login_url="/login")
+def game(request):    
     return render(request, 'game.html')
 
