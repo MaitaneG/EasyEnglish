@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout as auth_logout
-import random
-from django.http import JsonResponse
+from django.contrib.auth import logout as auth_logout,get_user_model
 from django.contrib.auth.decorators import login_required
+
+from django.http import JsonResponse
+import random
 from game.models import Hangman
 
 # Create your views here.
@@ -13,6 +14,12 @@ def game(request):
 @login_required(login_url="/login")
 def hangman(request):
     return render(request, 'hangman.html')
+
+@login_required(login_url="/login")
+def ranking(request):
+    User = get_user_model()
+    users = User.objects.all()
+    return render(request, 'ranking.html',{'users':users})
 
 @login_required(login_url="/login")
 def memoryGame(request):

@@ -468,4 +468,12 @@ nav h3 {
 .grid_match div p {
   margin: 0;
   color: black;
+}
+
+/* Ranking */
+.user {
+  border: 1px solid white;
+}
+.user p {
+  margin: 10px;
 }/*# sourceMappingURL=styles.css.map */

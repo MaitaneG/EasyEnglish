@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}EasyEnglish | Ranking {% endblock title %} 
+{% block content %} 
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <h2>Ranking</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="{% url 'game' %}"><h5 class="m-0">Atrás</h5></a>
+              </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="games_container container">
+    {% for user in users %}
+    <div class="user">
+        <p>1. {{user.username}}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
