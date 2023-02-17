@@ -5,6 +5,8 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 
 from django.contrib.auth.decorators import login_required
+
+from user.models import AppUser
 from .forms import LoginForm, RegisterForm
 
 # Create your views here.
@@ -49,6 +51,8 @@ def register(request):
             user = User(username=username, email=email, password=passwordHashed)
             try:
                 user.save()
+                bezeroa = AppUser(user=user,points=0)
+                bezeroa.save()
                 return redirect('login')
             except:
                 messages.warning(request, 'El nombre de usuario ya está usado. Elige otro')
@@ -61,6 +65,7 @@ def profile(request):
     return render(request, 'profile.html')
 
 @login_required(login_url="/login")
-def game(request):    
-    return render(request, 'game.html')
+def game(request): 
+    erabiltzaile=AppUser.objects.get(user=request.user)
+    return render(request, 'game.html',{'erabiltzaile':erabiltzaile})
 

@@ -18,7 +18,7 @@
 <div class="games_container container">
     {% for user in users %}
     <div class="user">
-        <p>1. {{user.username}}</p>
+        <p>1. {{user.user.username}} {{user.points}} points</p>
     </div>
     {% endfor %}
 </div>

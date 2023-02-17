@@ -5,11 +5,13 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import random
 from game.models import Hangman
+from user.models import AppUser
 
 # Create your views here.
 @login_required(login_url="/login")
 def game(request):
-    return render(request, 'game.html')
+    erabiltzaile=AppUser.objects.get(user=request.user)
+    return render(request, 'game.html',{'erabiltzaile':erabiltzaile})
 
 @login_required(login_url="/login")
 def hangman(request):
@@ -17,9 +19,8 @@ def hangman(request):
 
 @login_required(login_url="/login")
 def ranking(request):
-    User = get_user_model()
-    users = User.objects.all()
-    return render(request, 'ranking.html',{'users':users})
+    erabiltzaileak=AppUser.objects.all()
+    return render(request, 'ranking.html',{'users':erabiltzaileak})
 
 @login_required(login_url="/login")
 def memoryGame(request):
