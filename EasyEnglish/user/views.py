@@ -62,7 +62,8 @@ def register(request):
 
 @login_required(login_url="/login")
 def profile(request):
-    return render(request, 'profile.html')
+    erabiltzaile=Ranking.objects.get(user=request.user)
+    return render(request, 'profile.html',{'erabiltzaile':erabiltzaile})
 
 @login_required(login_url="/login")
 def game(request): 
