@@ -128,7 +128,8 @@
 
         const matched = document.querySelectorAll('.matched');
         if (matched.length == 16) {
-            alert("Bukatu duzu");
+            plusPoints();
+            window.location="/game"
         }
     }
 
@@ -182,6 +183,20 @@
             c.classList.remove("matched")
         })
     }
+
+    const plusPoints = () => {
+          let csrftoken = '{{ csrf_token }}';
+          let datuak = { points: 15 }
+          $.ajax({
+              type: 'POST',
+              headers: { 'X-CSRFToken': csrftoken },
+              url: '{% url "plusPoints" %}',
+              data: datuak,
+              dataType: 'json',
+              success: function (response) {
+              },
+          });
+        };
 
     window.onload = initializer;
 </script>
