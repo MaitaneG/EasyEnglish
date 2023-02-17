@@ -57,6 +57,14 @@ def getCards(request):
 
     return JsonResponse(cardsWords,safe=False)
 
+@login_required(login_url="/login")
+def plusPoints(request):
+    points = request.POST.get('points')
+    ranking = Ranking.objects.get(user=request.user)
+    ranking.points+=int(points)
+    ranking.save()
+    return JsonResponse("Okay",safe=False)
+
 def logout(request):
     auth_logout(request)
     return redirect('index')

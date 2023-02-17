@@ -12,6 +12,7 @@ urlpatterns=[
     path('logout/',views.logout,name='logout'),
     path('get_hangman_by_type/',views.getHangmanByType,name='getHangmanByType'),
     path('getCards/',views.getCards,name='getCards'),
+    path('plusPoints/',views.plusPoints,name='plusPoints'),
 ]
 
 if settings.DEBUG:   

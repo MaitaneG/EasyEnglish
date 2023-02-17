@@ -82,7 +82,8 @@
                     //if winCount equals word lenfth
                     if (winCount == charArray.length) {
                       resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
-        
+                      
+                      plusPoints();
                       //block all buttons
                       blocker();
                     }
@@ -281,6 +282,20 @@
             default:
               break;
           }
+        };
+
+        const plusPoints = () => {
+          let csrftoken = '{{ csrf_token }}';
+          let datuak = { points: 10 }
+          $.ajax({
+              type: 'POST',
+              headers: { 'X-CSRFToken': csrftoken },
+              url: '{% url "plusPoints" %}',
+              data: datuak,
+              dataType: 'json',
+              success: function (response) {
+              },
+          });
         };
 
         const gameMenu = () => {
