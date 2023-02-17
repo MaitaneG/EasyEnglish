@@ -17,14 +17,38 @@
 
 <div class="games_container container">
     {% for use in users %}
-        {% if use.user == user %}
-            <div class="user logged_user">
-                <p>{{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
-            </div>
+        {% if use.rank == 1 %}
+            {% if use.user == user %}
+                <div class="user logged_user">
+            {% else %}
+                <div class="user">
+            {% endif %}
+                    <p><i class="fa-solid fa-medal gold"></i> {{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
+                </div>
+        {% elif use.rank == 2 %}
+            {% if use.user == user %}
+                <div class="user logged_user">
+            {% else %}
+                <div class="user">
+            {% endif %}
+                    <p><i class="fa-solid fa-medal silver"></i> {{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
+                </div>
+        {% elif use.rank == 3 %}
+            {% if use.user == user %}
+                <div class="user logged_user">
+            {% else %}
+                <div class="user">
+            {% endif %}
+                    <p><i class="fa-solid fa-medal bronze"></i> {{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
+                </div>
         {% else %}
-        <div class="user">
-            <p>{{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
-        </div>
+            {% if use.user == user %}
+                <div class="user logged_user">
+            {% else %}
+                <div class="user">
+            {% endif %}
+                    <p>{{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
+                </div>
         {% endif %}
     {% endfor %}
 </div>
