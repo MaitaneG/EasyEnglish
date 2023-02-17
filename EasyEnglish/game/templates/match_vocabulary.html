@@ -135,7 +135,8 @@
         matched = document.querySelectorAll(".matched");
 
         if (matched.length == 8) {
-            alert("Bukatu duzu");
+            plusPoints();
+            window.location="/game";
         }
     }
 
@@ -146,11 +147,25 @@
             setTimeout(()=>{
                 chosen1.classList.remove("chosen");
                 chosen2.classList.remove("chosen");
-            }, 1000);
+            }, 500);
         }else{
             alert("Saiakera guztiak agortu dituzu");
         }
     }
+
+    const plusPoints = () => {
+        let csrftoken = '{{ csrf_token }}';
+        let datuak = { points: 5 }
+        $.ajax({
+            type: 'POST',
+            headers: { 'X-CSRFToken': csrftoken },
+            url: '{% url "plusPoints" %}',
+            data: datuak,
+            dataType: 'json',
+            success: function (response) {
+            },
+        });
+    };
 
     window.onload = initializer;
 </script>
