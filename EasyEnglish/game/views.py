@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as auth_logout,get_user_model
 from django.contrib.auth.decorators import login_required
+from django.db.models.expressions import Window
+from django.db.models.functions.window import RowNumber
 
 from django.http import JsonResponse
 import random
@@ -19,7 +21,8 @@ def hangman(request):
 
 @login_required(login_url="/login")
 def ranking(request):
-    erabiltzaileak=AppUser.objects.all()
+    erabiltzaileak=AppUser.objects.all().order_by('-points').annotate(rank = Window(expression=RowNumber()))
+
     return render(request, 'ranking.html',{'users':erabiltzaileak})
 
 @login_required(login_url="/login")

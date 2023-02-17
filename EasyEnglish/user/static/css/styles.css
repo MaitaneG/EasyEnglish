@@ -476,4 +476,9 @@ nav h3 {
 }
 .user p {
   margin: 10px;
+}
+
+.logged_user {
+  background-color: #db5a6e;
+  border-color: #db5a6e;
 }/*# sourceMappingURL=styles.css.map */
