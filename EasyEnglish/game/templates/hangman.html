@@ -39,22 +39,14 @@
         let chosenWord = "";
         let translation = "";
         let photo = "";
+
+        var words=[];
         
         /**
          * Initial Function (Called when page loads/user presses new game)
          *
          * **/
         const initializer = () => {
-          winCount = 0;
-          count = 0;
-        
-          //Initially erase all content and hide letteres and new game button
-          userInputSection.innerHTML = "";
-          optionsContainer.innerHTML = "";
-          letterContainer.classList.add("hide");
-          newGameContainer.classList.add("hide");
-          letterContainer.innerHTML = "";
-        
           //For creating LETTER buttons
           for (let i = 65; i < 91; i++) {
             let button = document.createElement("button");
@@ -84,7 +76,7 @@
                       resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
                       
                       plusPoints();
-                      //block all buttons
+                      addLearntWords();
                       blocker();
                     }
                   }
@@ -184,21 +176,20 @@
           $.ajax({
             //create an ajax request to display.php
             type: 'POST',
-            headers:{'X-CSRFToken':csrftoken},
+            headers: { 'X-CSRFToken': csrftoken },
             url: '{% url "getHangmanByType" %}',
             data: datuak,
-            dataType:'json',
+            dataType: 'json',
             success: function (response) {
-        
-              //choose random word
+              words.push(response.word)
               chosenWord = response.word;
               translation = response.spanish;
-              photo = "/media/"+response.photo;
+              photo = "/media/" + response.photo;
               chosenWord = chosenWord.toUpperCase();
-            
+
               //replace every letter with span containing dash
               let displayItem = chosenWord.replace(/./g, '<span class="dashes">_</span>');
-            
+
               //Display each element as span
               userInputSection.innerHTML = displayItem;
             },
@@ -298,12 +289,30 @@
           });
         };
 
+        const addLearntWords = () => {
+            let csrftoken = '{{ csrf_token }}';
+            let datuak = JSON.stringify({ "words": words })
+            console.log(datuak)
+            $.ajax({
+              type: 'POST',
+              headers: { 'X-CSRFToken': csrftoken },
+              url: '{% url "addLearntWords" %}',
+              data: datuak,
+              dataType: 'json',
+              success: function (response) {
+              },
+            });
+          };
+
         const gameMenu = () => {
           window.location.href = "{% url 'game' %}"
         }
 
+        const reloadPage = () => {
+          location.reload();
+        }
         //New Game
-        newGameButton.addEventListener("click", initializer);
+        newGameButton.addEventListener("click", reloadPage);
         gameMenuButton.addEventListener("click", gameMenu);
         window.onload = initializer;
         </script>
