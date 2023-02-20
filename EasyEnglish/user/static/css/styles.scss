@@ -572,3 +572,29 @@ nav {
 .bronze{
   color: #cd7f32 ;
 }
+
+/* Profile */
+.learntWords{
+  background-color: $secondary_color;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 50px;
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+
+  div{
+    border: 2px solid $font_color;
+        box-shadow: 5px 5px $secondary_color;
+        border-radius: 10px;
+        text-align: center;
+        padding: 1rem;
+        cursor: pointer;
+
+        p {
+          margin: 0 !important;
+          color: $font_color;
+        }
+  }
+}

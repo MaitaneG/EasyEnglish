@@ -16,5 +16,8 @@ class Learnt(models.Model):
     user=models.ForeignKey(Ranking, on_delete=models.CASCADE)
     word=models.ForeignKey(Term, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return '%s %s' % (self.user , self.word)
+    
     class Meta:
         unique_together=[['user', 'word']]

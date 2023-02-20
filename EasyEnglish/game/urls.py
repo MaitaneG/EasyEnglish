@@ -13,6 +13,7 @@ urlpatterns=[
     path('get_hangman_by_type/',views.getHangmanByType,name='getHangmanByType'),
     path('getCards/',views.getCards,name='getCards'),
     path('plusPoints/',views.plusPoints,name='plusPoints'),
+    path('addLearntWords/',views.addLearntWords,name='addLearntWords'),
 ]
 
 if settings.DEBUG:   
