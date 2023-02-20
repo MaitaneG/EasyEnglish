@@ -9,6 +9,7 @@ from django.http import JsonResponse
 import random
 from vocabulary.models import Term
 from user.models import Ranking
+from django.db.models import F
 
 # Create your views here.
 
@@ -25,13 +26,6 @@ def hangman(request):
 
 
 @login_required(login_url="/login")
-def ranking(request):
-    erabiltzaileak = Ranking.objects.all().order_by('-points').annotate(rank=Window(expression=RowNumber()))
-
-    return render(request, 'ranking.html', {'users': erabiltzaileak})
-
-
-@login_required(login_url="/login")
 def memoryGame(request):
     return render(request, 'memory_game.html')
 
@@ -39,6 +33,14 @@ def memoryGame(request):
 @login_required(login_url="/login")
 def matchVocabulary(request):
     return render(request, 'match_vocabulary.html')
+
+
+@login_required(login_url="/login")
+def ranking(request):
+    erabiltzaileak = Ranking.objects.all().annotate(rank=Window(
+    expression=RowNumber(),order_by=F("points").desc())).order_by('-points')
+    
+    return render(request, 'ranking.html', {'users': erabiltzaileak})
 
 
 @login_required(login_url="/login")
