@@ -553,28 +553,28 @@ nav {
 }
 
 /* Ranking */
-.user{
+.user {
   border: 1px solid white;
-  p{
+  p {
     margin: 10px;
   }
 }
-.logged_user{
+.logged_user {
   background-color: $secondary_color;
   border-color: $secondary_color;
 }
-.gold{
+.gold {
   color: gold;
 }
-.silver{
+.silver {
   color: silver;
 }
-.bronze{
-  color: #cd7f32 ;
+.bronze {
+  color: #cd7f32;
 }
 
 /* Profile */
-.learntWords{
+.learntWords {
   background-color: $secondary_color;
   display: flex;
   gap: 25px;
@@ -584,17 +584,17 @@ nav {
   justify-content: center;
   margin-top: 50px;
 
-  div{
+  div {
     border: 2px solid $font_color;
-        box-shadow: 5px 5px $secondary_color;
-        border-radius: 10px;
-        text-align: center;
-        padding: 1rem;
-        cursor: pointer;
+    box-shadow: 5px 5px $secondary_color;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
 
-        p {
-          margin: 0 !important;
-          color: $font_color;
-        }
+    p {
+      margin: 0 !important;
+      color: $font_color;
+    }
   }
 }
