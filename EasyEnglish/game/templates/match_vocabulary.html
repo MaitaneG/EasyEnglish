@@ -33,6 +33,7 @@
 <script>
     const cards = document.querySelectorAll('.card');
     var attempts = 0;
+    var words=[];
 
     const initializer = () => {
         getCards();
@@ -50,7 +51,8 @@
             data: datuak,
             dataType: 'json',
             success: function (response) {
-                for(let i=0;i<cards.length;i++){
+                for(let i=0;i<response.length;i++){
+                    words.push(response[i].word)
                     cards.forEach((card)=>{
                         if(card.dataset['index']==i){
                             if(card.dataset['type']=="photo"){
@@ -136,6 +138,7 @@
 
         if (matched.length == 8) {
             plusPoints();
+            addLearntWords();
             window.location="/game";
         }
     }
@@ -160,6 +163,21 @@
             type: 'POST',
             headers: { 'X-CSRFToken': csrftoken },
             url: '{% url "plusPoints" %}',
+            data: datuak,
+            dataType: 'json',
+            success: function (response) {
+            },
+        });
+    };
+
+    const addLearntWords = () => {
+        let csrftoken = '{{ csrf_token }}';
+        let datuak = JSON.stringify({ "words": words })
+        console.log(datuak)
+        $.ajax({
+            type: 'POST',
+            headers: { 'X-CSRFToken': csrftoken },
+            url: '{% url "addLearntWords" %}',
             data: datuak,
             dataType: 'json',
             success: function (response) {
