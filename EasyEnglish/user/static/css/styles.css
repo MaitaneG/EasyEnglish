@@ -350,20 +350,37 @@ nav h3 {
     width: 100%;
   }
 }
-.grid_vocabulary .modal-header * {
+
+/* Modal */
+.modal-header * {
   color: black !important;
 }
-.grid_vocabulary .modal-body * {
+
+.modal-body {
+  text-align: left;
+}
+.modal-body * {
   color: black !important;
 }
-.grid_vocabulary .modal-footer button {
+.modal-body button {
+  background-color: #db5a6e;
+  color: white !important;
+}
+.modal-body button:hover {
+  background-color: #d7485d;
+}
+.modal-body button:active {
+  background-color: #d0203a;
+}
+
+.modal-footer button {
   background-color: #db5a6e;
   color: white;
 }
-.grid_vocabulary .modal-footer button:hover {
+.modal-footer button:hover {
   background-color: #d7485d;
 }
-.grid_vocabulary .modal-footer button:active {
+.modal-footer button:active {
   background-color: #d0203a;
 }
 
@@ -496,17 +513,23 @@ nav h3 {
 }
 
 /* Profile */
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .learntWords {
   background-color: #db5a6e;
+  margin-top: 30px;
+}
+.learntWords div {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
   padding: 25px;
   text-align: center;
   justify-content: center;
-  margin-top: 50px;
 }
-.learntWords div {
+.learntWords div div {
   border: 2px solid white;
   box-shadow: 5px 5px #db5a6e;
   border-radius: 10px;
@@ -514,7 +537,7 @@ nav h3 {
   padding: 1rem;
   cursor: pointer;
 }
-.learntWords div p {
+.learntWords div div p {
   margin: 0 !important;
   color: white;
 }/*# sourceMappingURL=styles.css.map */

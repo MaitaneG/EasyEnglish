@@ -17,7 +17,7 @@
     </div>
     <section id="vocabulary" class="vocabulary">
       {% for word in vocabulary %}
-      <a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="{{word.word}}" data-spanish="{{word.spanish}}" data-audio="{{word.audio}}" class="open-dialog">
+      <a href="#showInfo" data-toggle="modal" data-target="#vocabularyModal" data-word="{{word.word}}" data-spanish="{{word.spanish}}" data-audio="{{word.audio}}" class="open-dialog">
       <div id="word">
           <img src="/media/{{word.photo}}" />
           <p>{{word.word}}</p>
@@ -27,7 +27,7 @@
     </section>
 
     <!-- The Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="vocabularyModal" tabindex="-1" role="dialog" aria-labelledby="vocabularyModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -91,7 +91,6 @@
     var word = $(this).data('word');
     var spanish = $(this).data('spanish');
     var audio = $(this).data('audio');
-    console.log(audio)
     
     $(".modal-header").html("<h3>"+ word+"</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
 

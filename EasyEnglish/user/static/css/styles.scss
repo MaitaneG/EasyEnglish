@@ -416,27 +416,39 @@ nav {
       }
     }
   }
+}
 
-  .modal-header {
-    * {
-      color: $font_color_secundary !important;
+/* Modal */
+.modal-header {
+  * {
+    color: $font_color_secundary !important;
+  }
+}
+.modal-body {
+  text-align: left;
+  * {
+    color: $font_color_secundary !important;
+  }
+  button {
+    background-color: $secondary_color;
+    color: $font_color !important;
+    &:hover {
+      background-color: $secondary_color_darker;
+    }
+    &:active {
+      background-color: $secondary_color_dark;
     }
   }
-  .modal-body {
-    * {
-      color: $font_color_secundary !important;
+}
+.modal-footer {
+  button {
+    background-color: $secondary_color;
+    color: $font_color;
+    &:hover {
+      background-color: $secondary_color_darker;
     }
-  }
-  .modal-footer {
-    button {
-      background-color: $secondary_color;
-      color: $font_color;
-      &:hover {
-        background-color: $secondary_color_darker;
-      }
-      &:active {
-        background-color: $secondary_color_dark;
-      }
+    &:active {
+      background-color: $secondary_color_dark;
     }
   }
 }
@@ -574,27 +586,33 @@ nav {
 }
 
 /* Profile */
+.cursor-pointer{
+  cursor: pointer;
+}
 .learntWords {
   background-color: $secondary_color;
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  padding: 25px;
-  text-align: center;
-  justify-content: center;
-  margin-top: 50px;
-
+  margin-top: 30px;
+  
   div {
-    border: 2px solid $font_color;
-    box-shadow: 5px 5px $secondary_color;
-    border-radius: 10px;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 25px;
     text-align: center;
-    padding: 1rem;
-    cursor: pointer;
+    justify-content: center;
+    
+    div {
+      border: 2px solid $font_color;
+      box-shadow: 5px 5px $secondary_color;
+      border-radius: 10px;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
 
-    p {
-      margin: 0 !important;
-      color: $font_color;
+      p {
+        margin: 0 !important;
+        color: $font_color;
+      }
     }
   }
 }
