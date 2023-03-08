@@ -17,8 +17,8 @@
 <div class="games_container container">
     <i class="fa-solid fa-face-smile" style="font-size: 100px;"></i>
     <div class="d-flex justify-content-center align-items-center">
-        <h1>{{user.username}}</h1>
-        <a href="#changeUsername" data-toggle="modal" data-target="#changeUsernameModal"><h4><i class="fa-solid fa-pencil ml-4 cursor-pointer"></i></h4></a>
+        <h1 id="username">{{user.username}}</h1>
+        <a href="#changeUsername" data-toggle="modal" data-target="#changeUsernameModal" class="change-username-dialog"><h4><i class="fa-solid fa-pencil ml-4 cursor-pointer"></i></h4></a>
     </div>
     
     <h4><i class="fa-solid fa-medal"></i> {{erabiltzaile.points}} points</h4>
@@ -54,13 +54,11 @@
     </div>
 
     <!-- Change username Modal -->
-    <div class="modal fade" id="changeUsernameModal" tabindex="-1" role="dialog" aria-labelledby="learntWordsModalLabel" aria-hidden="true">
+    <div class="modal fade" id="changeUsernameModal" tabindex="-1" role="dialog" aria-labelledby="changeUsernameModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-                    <button type="button" data-dismiss="modal" aria-label="Close" >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                 </div>
                 <div class="modal-body border-0">
                     <div class="form-title text-center">
@@ -84,7 +82,7 @@
 <script>
     $(document).ready(function () {
         dialogLearntWords();
-        changeUsername();
+        dialogChangeUsername();
     })
 
     function dialogLearntWords() {
@@ -99,9 +97,11 @@
             $(".modal-body").html("<h5>Significa <b>" + spanish + "</b></h5><audio controls><source src='/media/" + audio + "' type='audio/mp3'></audio>");
         });
     }
-    function dialog() {
+    function dialogChangeUsername() {
         $(".change-username-dialog").on("click", function () {
+            var username = $("#username").html();
             
+            $(".modal-body").html('<div class="form-title text-center"><h4>Cambiar nombre de usuario</h4></div><div class="d-flex flex-column text-center"><form><div class="form-group"><input type="email" class="form-control" id="email1" value="'+username+'"></div><button type="button" class="btn">Login</button></form></div>');
         });
     }
 </script>
