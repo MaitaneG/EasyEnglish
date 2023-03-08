@@ -427,7 +427,6 @@ nav h3 {
   justify-content: center;
   align-items: center;
   background-color: white;
-  transform: rotateY(90deg);
 }
 .grid_memory .cell .front p {
   color: black;
