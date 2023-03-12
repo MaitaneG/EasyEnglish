@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
@@ -64,6 +65,18 @@ def register(request):
 def profile(request):
     erabiltzaile=Ranking.objects.get(user=request.user)
     return render(request, 'profile.html',{'erabiltzaile':erabiltzaile})
+
+@login_required(login_url="/login")
+def changeUsername(request):
+    ranking=Ranking.objects.get(user=request.user)
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        user = User.objects.get(username=request.user.username)
+        user.username=username
+        user.save()
+        return redirect('profile')
+    return render(request, 'changeUsername.html',{'erabiltzaile':ranking})
 
 @login_required(login_url="/login")
 def game(request): 
