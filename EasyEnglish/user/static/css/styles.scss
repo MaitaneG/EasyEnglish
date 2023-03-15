@@ -19,6 +19,11 @@ $font_size_small_button: 20px;
   color: $font_color;
   font-family: $font_family, FontAwesome;
 }
+.alert{
+  strong, span{
+    color:#721c24;
+  } 
+}
 
 h1 {
   font-size: $font_size_big_title;

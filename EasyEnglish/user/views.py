@@ -16,7 +16,6 @@ def index(request):
 
 def login(request):
     if request.user.is_authenticated:
-        messages.warning(request, 'Logeatu zara')
         return redirect('game')
     else:
         if request.method == 'POST':

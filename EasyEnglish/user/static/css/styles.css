@@ -3,6 +3,10 @@
   font-family: Montagu Slab, FontAwesome;
 }
 
+.alert strong, .alert span {
+  color: #721c24;
+}
+
 h1 {
   font-size: 70px;
   font-weight: bold;
@@ -427,6 +431,7 @@ nav h3 {
   justify-content: center;
   align-items: center;
   background-color: white;
+  transform: rotateY(90deg);
 }
 .grid_memory .cell .front p {
   color: black;
