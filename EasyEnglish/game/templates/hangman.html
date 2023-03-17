@@ -73,7 +73,7 @@
         
                     //if winCount equals word lenfth
                     if (winCount == charArray.length) {
-                      resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
+                      resultText.innerHTML = `<h2 class='win-msg'>You Won!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
                       
                       plusPoints();
                       addLearntWords();
@@ -90,7 +90,7 @@
         
                 //Count==6 because head,body,left arm, right arm,left leg,right leg
                 if (count == 6) {
-                  resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
+                  resultText.innerHTML = `<h2 class='lose-msg'>You Lost!!</h2><p>La palabra era <span>${chosenWord}</span></p><p>Que significa <span>${translation}</span></p><img src="${photo}"/>`;
         
                   blocker();
                 }
