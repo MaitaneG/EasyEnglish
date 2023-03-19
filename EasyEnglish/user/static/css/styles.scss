@@ -244,69 +244,69 @@ nav {
     margin: auto;
     border: 1px solid $font_color_secundary;
   }
+}
 
-  .hide {
-    display: none !important;
-  }
+.hide {
+  display: none !important;
+}
 
-  .new-game-popup {
-    background-color: $font_color;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 0.6em;
+.new-game-popup {
+  background-color: $font_color;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0.6em;
 
-    #result-text {
-      h2 {
-        font-size: 2.5em;
-        text-align: center;
-      }
-      p {
-        font-size: 1.25em;
-        margin: 1em 0 2em 0;
+  #result-text {
+    h2 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+    p {
+      font-size: 1.25em;
+      margin: 1em 0 2em 0;
+      color: $font_color_secundary;
+      span {
+        font-weight: 600;
         color: $font_color_secundary;
-        span {
-          font-weight: 600;
-          color: $font_color_secundary;
-        }
-      }
-
-      img {
-        width: 150px;
-        border-radius: 30px;
-        margin-bottom: 20px;
-      }
-
-      .win-msg {
-        color: #39d78d;
-      }
-      .lose-msg {
-        color: red;
       }
     }
 
-    button {
-      font-size: 1.25em;
-      padding: 0.5em 1em;
-      background-color: $secondary_color;
-      border: 3px solid $font_color_secundary;
-      color: $font_color_secundary;
-      border-radius: 0.2em;
+    img {
+      width: 150px;
+      border-radius: 30px;
       margin-bottom: 20px;
+    }
 
-      &:hover {
-        background-color: $secondary_color_darker;
-      }
+    .win-msg {
+      color: #39d78d;
+    }
+    .lose-msg {
+      color: red;
+    }
+  }
 
-      &:active {
-        background-color: $secondary_color_dark;
-      }
+  button {
+    font-size: 1.25em;
+    padding: 0.5em 1em;
+    background-color: $secondary_color;
+    border: 3px solid $font_color_secundary;
+    color: $font_color_secundary;
+    border-radius: 0.2em;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: $secondary_color_darker;
+    }
+
+    &:active {
+      background-color: $secondary_color_dark;
     }
   }
 }

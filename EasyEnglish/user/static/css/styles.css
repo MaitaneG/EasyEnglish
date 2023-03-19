@@ -201,10 +201,12 @@ nav h3 {
   margin: auto;
   border: 1px solid black;
 }
-.container_hangman .hide {
+
+.hide {
   display: none !important;
 }
-.container_hangman .new-game-popup {
+
+.new-game-popup {
   background-color: white;
   position: absolute;
   left: 0;
@@ -217,31 +219,31 @@ nav h3 {
   flex-direction: column;
   border-radius: 0.6em;
 }
-.container_hangman .new-game-popup #result-text h2 {
+.new-game-popup #result-text h2 {
   font-size: 2.5em;
   text-align: center;
 }
-.container_hangman .new-game-popup #result-text p {
+.new-game-popup #result-text p {
   font-size: 1.25em;
   margin: 1em 0 2em 0;
   color: black;
 }
-.container_hangman .new-game-popup #result-text p span {
+.new-game-popup #result-text p span {
   font-weight: 600;
   color: black;
 }
-.container_hangman .new-game-popup #result-text img {
+.new-game-popup #result-text img {
   width: 150px;
   border-radius: 30px;
   margin-bottom: 20px;
 }
-.container_hangman .new-game-popup #result-text .win-msg {
+.new-game-popup #result-text .win-msg {
   color: #39d78d;
 }
-.container_hangman .new-game-popup #result-text .lose-msg {
+.new-game-popup #result-text .lose-msg {
   color: red;
 }
-.container_hangman .new-game-popup button {
+.new-game-popup button {
   font-size: 1.25em;
   padding: 0.5em 1em;
   background-color: #db5a6e;
@@ -250,10 +252,10 @@ nav h3 {
   border-radius: 0.2em;
   margin-bottom: 20px;
 }
-.container_hangman .new-game-popup button:hover {
+.new-game-popup button:hover {
   background-color: #d7485d;
 }
-.container_hangman .new-game-popup button:active {
+.new-game-popup button:active {
   background-color: #d0203a;
 }
 

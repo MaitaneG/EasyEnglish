@@ -69,13 +69,26 @@
             <div class="back"></div>
         </div>
     </div>
+    <div id="container_hangman" class="container_hangman hide">
+        <div id="new-game-container" class="new-game-popup" style="height:inherit">
+            <div id="result-text"></div>
+            <button id="new-game-button">Nueva partida</button>
+            <button id="game-menu-button">Volver al menu principal</button>
+        </div>
+    </div>
 </div>
 <script>
     const card = document.querySelectorAll('.cell');
     const front = document.querySelectorAll('.front');
+
+    const newGameContainer = document.getElementById("container_hangman");
+    const newGameButton = document.getElementById("new-game-button");
+    const gameMenuButton = document.getElementById("game-menu-button");
+    const resultText = document.getElementById("result-text");
+
     var attempts = 0;
 
-    var words=[];
+    var words = [];
 
     const initializer = () => {
         getCards();
@@ -114,9 +127,11 @@
 
         const matched = document.querySelectorAll('.matched');
         if (matched.length == 16) {
-            plusPoints();
-            addLearntWords();
-            window.location="/game";
+            resultText.innerHTML = "<h2 class='lose-msg'>You Lost!!</h2>";
+            newGameContainer.classList.remove("hide");
+            //plusPoints();
+            //addLearntWords();
+            //window.location="/game";
         }
     }
 
@@ -129,7 +144,9 @@
                 card2.classList.remove('flip');
             }, 1000);
         } else {
-            alert('Saiakera guztiak agortu dituzu');
+            resultText.innerHTML = "<h2 class='lose-msg'>You Lost!!</h2>";
+            newGameContainer.classList.remove("hide");
+            //alert('Saiakera guztiak agortu dituzu');
         }
     }
 
@@ -201,6 +218,16 @@
         });
     };
 
+    const gameMenu = () => {
+        window.location.href = "{% url 'game' %}"
+    }
+
+    const reloadPage = () => {
+        location.reload();
+    }
+    //New Game
+    newGameButton.addEventListener("click", reloadPage);
+    gameMenuButton.addEventListener("click", gameMenu);
     window.onload = initializer;
 </script>
 {% endblock content %}
