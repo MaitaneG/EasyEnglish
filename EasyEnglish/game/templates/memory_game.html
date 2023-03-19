@@ -3,7 +3,7 @@
 {% block title %} Memory game {% endblock title %}
 {% block content %}
 <div class="home_page">
-    <div class="grid_memory">
+    <div class="grid_memory" id="grid_memory">
         <div class="cell">
             <div class="front" data-index="0" data-type="photo"></div>
             <div class="back"></div>
@@ -70,7 +70,7 @@
         </div>
     </div>
     <div id="container_hangman" class="container_hangman hide">
-        <div id="new-game-container" class="new-game-popup" style="height:inherit">
+        <div id="new-game-container" class="new-game-popup" style="height:inherit;position:relative">
             <div id="result-text"></div>
             <button id="new-game-button">Nueva partida</button>
             <button id="game-menu-button">Volver al menu principal</button>
@@ -82,6 +82,7 @@
     const front = document.querySelectorAll('.front');
 
     const newGameContainer = document.getElementById("container_hangman");
+    const gridMemory = document.getElementById("grid_memory");
     const newGameButton = document.getElementById("new-game-button");
     const gameMenuButton = document.getElementById("game-menu-button");
     const resultText = document.getElementById("result-text");
@@ -93,6 +94,7 @@
     const initializer = () => {
         getCards();
         suffleImage();
+        gridMemory.classList.remove("hide")
         clicking();
     }
 
@@ -127,11 +129,11 @@
 
         const matched = document.querySelectorAll('.matched');
         if (matched.length == 16) {
-            resultText.innerHTML = "<h2 class='lose-msg'>You Won!!</h2>";
+            resultText.innerHTML = "<h2 class='win-msg'>You Won!!</h2>";
             newGameContainer.classList.remove("hide");
-            //plusPoints();
-            //addLearntWords();
-            //window.location="/game";
+            gridMemory.classList.add("hide")
+            plusPoints();
+            addLearntWords();
         }
     }
 
@@ -146,7 +148,7 @@
         } else {
             resultText.innerHTML = "<h2 class='lose-msg'>You Lost!!</h2>";
             newGameContainer.classList.remove("hide");
-            //alert('Saiakera guztiak agortu dituzu');
+            gridMemory.classList.add("hide")
         }
     }
 
@@ -173,6 +175,7 @@
                             }
                         }
                     });
+                    alert(words[i])
                 }
             },
         });
