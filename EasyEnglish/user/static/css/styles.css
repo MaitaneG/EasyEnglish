@@ -496,6 +496,9 @@ nav h3 {
 /* Ranking */
 .user {
   border: 1px solid white;
+  padding: 10px;
+  border-radius: 40px;
+  margin: 15px 0px;
 }
 .user p {
   margin: 10px;
@@ -503,7 +506,15 @@ nav h3 {
 
 .logged_user {
   background-color: #db5a6e;
+  border-color: #d0203a;
+}
+
+.non_logged_user {
+  background-color: white;
   border-color: #db5a6e;
+}
+.non_logged_user p {
+  color: black !important;
 }
 
 .gold {

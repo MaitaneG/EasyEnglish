@@ -21,7 +21,7 @@
             {% if use.user == user %}
                 <div class="user logged_user">
             {% else %}
-                <div class="user">
+                <div class="user non_logged_user">
             {% endif %}
                     <p><i class="fa-solid fa-medal gold"></i> {{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
                 </div>
@@ -29,7 +29,7 @@
             {% if use.user == user %}
                 <div class="user logged_user">
             {% else %}
-                <div class="user">
+                <div class="user non_logged_user">
             {% endif %}
                     <p><i class="fa-solid fa-medal silver"></i> {{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
                 </div>
@@ -37,7 +37,7 @@
             {% if use.user == user %}
                 <div class="user logged_user">
             {% else %}
-                <div class="user">
+                <div class="user non_logged_user">
             {% endif %}
                     <p><i class="fa-solid fa-medal bronze"></i> {{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
                 </div>
@@ -45,7 +45,7 @@
             {% if use.user == user %}
                 <div class="user logged_user">
             {% else %}
-                <div class="user">
+                <div class="user non_logged_user">
             {% endif %}
                     <p>{{ use.rank }}. {{use.user.username}} {{use.points}} points</p>
                 </div>

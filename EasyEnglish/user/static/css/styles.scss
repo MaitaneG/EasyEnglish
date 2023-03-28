@@ -572,13 +572,24 @@ nav {
 /* Ranking */
 .user {
   border: 1px solid white;
+  padding: 10px;
+  border-radius: 40px;
+  margin: 15px 0px;
+  
   p {
     margin: 10px;
   }
 }
 .logged_user {
   background-color: $secondary_color;
+  border-color: $secondary_color_dark;
+}
+.non_logged_user {
+  background-color: $font_color;
   border-color: $secondary_color;
+  p{
+    color: $font_color_secundary !important;
+  }
 }
 .gold {
   color: gold;
