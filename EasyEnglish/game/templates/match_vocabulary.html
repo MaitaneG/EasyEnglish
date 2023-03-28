@@ -3,7 +3,7 @@
 {% block title %} Match vocabulary {% endblock title %}
 {% block content %}
 <div class="home_page">
-    <div class="grid_match">
+    <div class="grid_match" id="grid_match">
         <div class="photo card" data-index="0" data-type="photo"></div>
         <div class="text card" data-index="0" data-type="text"></div>
         <div class="photo card" data-index="1" data-type="photo"></div>
@@ -13,15 +13,30 @@
         <div class="photo card" data-index="3" data-type="photo"></div>
         <div class="text card" data-index="3" data-type="text"></div>
     </div>
+    <div id="container_match" class="container_hangman hide">
+        <div id="new-game-container" class="new-game-popup" style="height:inherit;position:relative">
+            <div id="result-text"></div>
+            <button id="new-game-button">Nueva partida</button>
+            <button id="game-menu-button">Volver al menu principal</button>
+        </div>
+    </div>
 </div>
 <script>
     const cards = document.querySelectorAll('.card');
+
+    const newGameContainer = document.getElementById("container_match");
+    const gridMatch = document.getElementById("grid_match");
+    const newGameButton = document.getElementById("new-game-button");
+    const gameMenuButton = document.getElementById("game-menu-button");
+    const resultText = document.getElementById("result-text");
+
     var attempts = 0;
     var words=[];
 
     const initializer = () => {
         getCards();
         suffleImage();
+        gridMatch.classList.remove("hide")
         clicking();
     }
 
@@ -123,7 +138,9 @@
         if (matched.length == 8) {
             plusPoints();
             addLearntWords();
-            window.location="/game";
+            resultText.innerHTML = "<h2 class='win-msg'>You Won!!</h2>";
+            newGameContainer.classList.remove("hide");
+            gridMatch.classList.add("hide")
         }
     }
 
@@ -136,7 +153,9 @@
                 chosen2.classList.remove("chosen");
             }, 500);
         }else{
-            alert("Saiakera guztiak agortu dituzu");
+            resultText.innerHTML = "<h2 class='lose-msg'>You Lost!!</h2>";
+            newGameContainer.classList.remove("hide");
+            gridMatch.classList.add("hide")
         }
     }
 
@@ -169,6 +188,16 @@
         });
     };
 
+    const gameMenu = () => {
+        window.location.href = "{% url 'game' %}"
+    }
+
+    const reloadPage = () => {
+        location.reload();
+    }
+    //New Game
+    newGameButton.addEventListener("click", reloadPage);
+    gameMenuButton.addEventListener("click", gameMenu);
     window.onload = initializer;
 </script>
 {% endblock content %}
