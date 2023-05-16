@@ -67,7 +67,7 @@
         success: function (response) {
           kodigoa=""
           for(let i=0; i<response.length;i++){
-            kodigoa += '<a href="#addBookDialog" data-toggle="modal" data-target="#exampleModal" data-word="'+response[i].word+'" data-spanish="'+response[i].spanish+'" data-audio="'+response[i].audio+'" class="open-dialog">';
+            kodigoa += '<a href="#showInfo" data-toggle="modal" data-target="#vocabularyModal" data-word="'+response[i].word+'" data-spanish="'+response[i].spanish+'" data-audio="'+response[i].audio+'" class="open-dialog">';
             kodigoa += '<div id="word">';
             kodigoa+='<img src="/media/'+response[i].photo+'"/>';
             kodigoa+='<p>'+response[i].word+'</p>';
