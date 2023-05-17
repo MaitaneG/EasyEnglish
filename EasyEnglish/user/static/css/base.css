@@ -1,9 +1,42 @@
+.modal-header * {
+  color: black !important;
+}
+
+.modal-body {
+  text-align: left;
+}
+.modal-body * {
+  color: black !important;
+}
+.modal-body button {
+  background-color: #db5a6e;
+  color: white !important;
+}
+.modal-body button:hover {
+  background-color: #d7485d;
+}
+.modal-body button:active {
+  background-color: #d0203a;
+}
+
+.modal-footer button {
+  background-color: #db5a6e;
+  color: white;
+}
+.modal-footer button:hover {
+  background-color: #d7485d;
+}
+.modal-footer button:active {
+  background-color: #d0203a;
+}
+
 * {
   color: white;
   font-family: Montagu Slab, FontAwesome;
 }
 
-.alert strong, .alert span {
+.alert strong,
+.alert span {
   color: #721c24;
 }
 
@@ -357,39 +390,6 @@ nav h3 {
   }
 }
 
-/* Modal */
-.modal-header * {
-  color: black !important;
-}
-
-.modal-body {
-  text-align: left;
-}
-.modal-body * {
-  color: black !important;
-}
-.modal-body button {
-  background-color: #db5a6e;
-  color: white !important;
-}
-.modal-body button:hover {
-  background-color: #d7485d;
-}
-.modal-body button:active {
-  background-color: #d0203a;
-}
-
-.modal-footer button {
-  background-color: #db5a6e;
-  color: white;
-}
-.modal-footer button:hover {
-  background-color: #d7485d;
-}
-.modal-footer button:active {
-  background-color: #d0203a;
-}
-
 /* Memory game */
 .grid_memory {
   display: grid;
@@ -557,4 +557,4 @@ nav h3 {
 .learntWords div div p {
   margin: 0 !important;
   color: white;
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=base.css.map */

@@ -1,28 +1,13 @@
-$primary_color: #246ee9;
-$secondary_color: #db5a6e;
-$secondary_color_darker: #d7485d;
-$secondary_color_dark: #d0203a;
-$secondary_color_disabled: rgba(219, 90, 110, 0.75);
-$grey: rgba(111, 85, 0, 0.25);
-$disabled: #efefef;
-$light_grey: #808080;
-$font_color: white;
-$font_color_secundary: black;
-
-$font_family: Montagu Slab;
-
-$font_size_big_title: 70px;
-$font_size_big_button: 30px;
-$font_size_small_button: 20px;
-
 * {
   color: $font_color;
   font-family: $font_family, FontAwesome;
 }
-.alert{
-  strong, span{
-    color:#721c24;
-  } 
+
+.alert {
+  strong,
+  span {
+    color: #721c24;
+  }
 }
 
 h1 {
@@ -33,6 +18,7 @@ h1 {
 body {
   background-color: $primary_color;
 }
+
 /*Home page, login and register*/
 .home_page {
   display: flex;
@@ -423,41 +409,6 @@ nav {
   }
 }
 
-/* Modal */
-.modal-header {
-  * {
-    color: $font_color_secundary !important;
-  }
-}
-.modal-body {
-  text-align: left;
-  * {
-    color: $font_color_secundary !important;
-  }
-  button {
-    background-color: $secondary_color;
-    color: $font_color !important;
-    &:hover {
-      background-color: $secondary_color_darker;
-    }
-    &:active {
-      background-color: $secondary_color_dark;
-    }
-  }
-}
-.modal-footer {
-  button {
-    background-color: $secondary_color;
-    color: $font_color;
-    &:hover {
-      background-color: $secondary_color_darker;
-    }
-    &:active {
-      background-color: $secondary_color_dark;
-    }
-  }
-}
-
 /* Memory game */
 .grid_memory {
   display: grid;
@@ -575,7 +526,7 @@ nav {
   padding: 10px;
   border-radius: 40px;
   margin: 15px 0px;
-  
+
   p {
     margin: 10px;
   }
@@ -587,7 +538,7 @@ nav {
 .non_logged_user {
   background-color: $font_color;
   border-color: $secondary_color;
-  p{
+  p {
     color: $font_color_secundary !important;
   }
 }
@@ -602,13 +553,13 @@ nav {
 }
 
 /* Profile */
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 .learntWords {
   background-color: $secondary_color;
   margin-top: 30px;
-  
+
   div {
     display: flex;
     gap: 25px;
@@ -616,7 +567,7 @@ nav {
     padding: 25px;
     text-align: center;
     justify-content: center;
-    
+
     div {
       border: 2px solid $font_color;
       box-shadow: 5px 5px $secondary_color;

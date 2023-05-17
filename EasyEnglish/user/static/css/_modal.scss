@@ -1,0 +1,34 @@
+.modal-header {
+  * {
+    color: $font_color_secundary !important;
+  }
+}
+.modal-body {
+  text-align: left;
+  * {
+    color: $font_color_secundary !important;
+  }
+  button {
+    background-color: $secondary_color;
+    color: $font_color !important;
+    &:hover {
+      background-color: $secondary_color_darker;
+    }
+    &:active {
+      background-color: $secondary_color_dark;
+    }
+  }
+}
+
+.modal-footer {
+  button {
+    background-color: $secondary_color;
+    color: $font_color;
+    &:hover {
+      background-color: $secondary_color_darker;
+    }
+    &:active {
+      background-color: $secondary_color_dark;
+    }
+  }
+}
